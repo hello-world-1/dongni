@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="openSource">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/openSource.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

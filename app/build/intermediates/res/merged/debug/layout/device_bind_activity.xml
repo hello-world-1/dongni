@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+	<!--IMEI号  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="@dimen/register_item_margin_top"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/imei_number" />
+
+        <EditText
+            android:id="@+id/et_imei_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/imei_number"
+            android:inputType="number" />
+    </LinearLayout>
+
+    <!-- 设备手机号 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="@dimen/register_item_margin_top"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/device_phone_number" />
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="phone" 
+            android:hint="@string/device_phone_number"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_bind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="@dimen/register_item_margin_top"
+        android:background="@color/button_color"
+        android:onClick="bind"
+        android:text="@string/device_bind"
+        android:textColor="@color/button_text_color"
+        android:textSize="@dimen/button_text_size" />
+
+</LinearLayout>

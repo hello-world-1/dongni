@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        applicationId "com.hagk.dongni"
+        minSdkVersion 16
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile files('libs/adapter-rxjava-2.0.0.jar')
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/butterknife-7.0.1.jar')
+    compile files('libs/converter-gson-2.0.0.jar')
+    compile files('libs/glide-3.7.0.jar')
+    compile files('libs/hamcrest-core-1.3.jar')
+    compile files('libs/junit-4.12.jar')
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile files('libs/okhttp-3.2.0.jar')
+    compile files('libs/okio-1.6.0.jar')
+    compile files('libs/openSource.jar')
+    compile files('libs/retrofit-2.0.0.jar')
+    compile files('libs/rxAndroid-1.1.0.jar')
+    compile files('libs/rxjava-1.1.1.jar')
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_left.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_left.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_bind_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\device_bind_activity.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\location_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\location_activity.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\slidingmenumain.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\slidingmenumain.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\regist_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\regist_activity.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\left_menu.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\left_menu.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\index_pager.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\index_pager.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\friend_listview.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\friend_listview.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_content.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_content.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\login_activity.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\base_pager.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\base_pager.xml"
+    }
+]
