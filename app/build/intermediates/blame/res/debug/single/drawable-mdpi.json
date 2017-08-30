@@ -1,6 +1,18 @@
 [
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\back_page.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\drawable-mdpi\\back_page.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\edit.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\drawable-mdpi\\edit.png"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_launcher.png",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\edit_normal.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\drawable-mdpi\\edit_normal.png"
     }
 ]

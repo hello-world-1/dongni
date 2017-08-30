@@ -16,10 +16,6 @@ public class LocationService {
 	private LocationClientOption mOption,DIYoption;
 	private Object  objLock = new Object();
 
-	/***
-	 * 
-	 * @param locationContext
-	 */
 	public LocationService(Context locationContext){
 		synchronized (objLock) {
 			if(client == null){
@@ -28,12 +24,6 @@ public class LocationService {
 			}
 		}
 	}
-	
-	/***
-	 * 
-	 * @param listener
-	 * @return
-	 */
 	
 	public boolean registerListener(BDAbstractLocationListener listener){
 		boolean isSuccess = false;
@@ -50,11 +40,6 @@ public class LocationService {
 		}
 	}
 	
-	/***
-	 * 
-	 * @param option
-	 * @return isSuccessSetOption
-	 */
 	public boolean setLocationOption(LocationClientOption option){
 		boolean isSuccess = false;
 		if(option != null){
@@ -69,10 +54,7 @@ public class LocationService {
 	public LocationClientOption getOption(){
 		return DIYoption;
 	}
-	/***
-	 * 
-	 * @return DefaultLocationClientOption
-	 */
+
 	public LocationClientOption getDefaultLocationClientOption(){
 		if(mOption == null){
 			mOption = new LocationClientOption();

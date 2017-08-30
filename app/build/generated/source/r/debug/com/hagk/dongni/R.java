@@ -53,6 +53,10 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fadeEnabled=0x7f01000a;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int leftBtn=0x7f010011;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -64,6 +68,10 @@ containing a value of this type.
 </table>
          */
         public static final int mode=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int rightBtn=0x7f010012;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -90,6 +98,24 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int shadowWidth=0x7f010009;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int titleColor=0x7f010010;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+         */
+        public static final int titleSize=0x7f01000f;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int titleText=0x7f01000e;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -160,62 +186,75 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int register_item_margin_top=0x7f060006;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int back_page=0x7f020000;
+        public static final int edit=0x7f020001;
+        public static final int edit_normal=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080026;
-        public static final int bmapView=0x7f080018;
-        public static final int btn_bind=0x7f08000a;
-        public static final int btn_getcode=0x7f080021;
-        public static final int btn_login=0x7f08001c;
-        public static final int btn_regist=0x7f080024;
-        public static final int button1=0x7f080019;
-        public static final int chanel_home=0x7f08000e;
-        public static final int et_imei_number=0x7f080008;
-        public static final int et_login_password=0x7f08001b;
-        public static final int et_login_username=0x7f08001a;
-        public static final int et_none=0x7f08001d;
-        public static final int et_phone_number=0x7f080009;
-        public static final int et_regist=0x7f08001e;
-        public static final int et_regist_authcode=0x7f080020;
-        public static final int et_regist_password=0x7f080022;
-        public static final int et_regist_re_password=0x7f080023;
-        public static final int et_regist_username=0x7f08001f;
+        public static final int action_settings=0x7f08002f;
+        public static final int back_image=0x7f080009;
+        public static final int bmapView=0x7f080020;
+        public static final int btn_bind=0x7f08000d;
+        public static final int btn_getcode=0x7f08002a;
+        public static final int btn_login=0x7f080025;
+        public static final int btn_regist=0x7f08002d;
+        public static final int button1=0x7f080021;
+        public static final int chanel_home=0x7f080012;
+        public static final int et_imei_number=0x7f08000b;
+        public static final int et_login_password=0x7f080024;
+        public static final int et_login_username=0x7f080023;
+        public static final int et_none=0x7f080026;
+        public static final int et_phone_number=0x7f08000c;
+        public static final int et_regist=0x7f080027;
+        public static final int et_regist_authcode=0x7f080029;
+        public static final int et_regist_password=0x7f08002b;
+        public static final int et_regist_re_password=0x7f08002c;
+        public static final int et_regist_username=0x7f080028;
         public static final int fl_cc=0x7f080007;
-        public static final int fl_left_menu=0x7f080017;
-        public static final int friend_lt=0x7f080015;
+        public static final int fl_left_menu=0x7f08001f;
+        public static final int friend_lt=0x7f08001d;
         public static final int fullscreen=0x7f080003;
-        public static final int icon=0x7f08000c;
+        public static final int icon=0x7f080010;
         public static final int left=0x7f080001;
-        public static final int location_history=0x7f080012;
-        public static final int location_request=0x7f080010;
+        public static final int ll_person_info=0x7f08000f;
+        public static final int location_history=0x7f080016;
+        public static final int location_request=0x7f080014;
         public static final int ly_content=0x7f080006;
         public static final int margin=0x7f080004;
         public static final int none=0x7f080005;
-        public static final int register_tv=0x7f080016;
+        public static final int register_tv=0x7f08001e;
         public static final int right=0x7f080002;
-        public static final int rl_friend_request=0x7f08000d;
-        public static final int rl_location_history=0x7f080011;
-        public static final int rl_location_request=0x7f08000f;
-        public static final int rl_other=0x7f080013;
+        public static final int right_image=0x7f08000a;
+        public static final int rl_contact=0x7f080017;
+        public static final int rl_friend_request=0x7f080011;
+        public static final int rl_location_history=0x7f080015;
+        public static final int rl_location_request=0x7f080013;
+        public static final int rl_otfsdafher=0x7f08001b;
+        public static final int rl_person_info=0x7f080019;
         public static final int selected_view=0x7f080000;
-        public static final int slidingmenumain=0x7f080025;
-        public static final int tv_other=0x7f080014;
-        public static final int vp_content=0x7f08000b;
+        public static final int slidingmenumain=0x7f08002e;
+        public static final int text_title=0x7f080008;
+        public static final int topbar=0x7f080022;
+        public static final int tv_ogdsgther=0x7f08001a;
+        public static final int tv_otfdsfasher=0x7f08001c;
+        public static final int tv_otfdsfer=0x7f080018;
+        public static final int vp_content=0x7f08000e;
     }
     public static final class layout {
         public static final int activity_main=0x7f040000;
         public static final int base_pager=0x7f040001;
-        public static final int device_bind_activity=0x7f040002;
-        public static final int fragment_content=0x7f040003;
-        public static final int fragment_left=0x7f040004;
-        public static final int friend_listview=0x7f040005;
-        public static final int index_pager=0x7f040006;
-        public static final int left_menu=0x7f040007;
-        public static final int location_activity=0x7f040008;
-        public static final int login_activity=0x7f040009;
-        public static final int regist_activity=0x7f04000a;
-        public static final int slidingmenumain=0x7f04000b;
+        public static final int custom_groupwidget=0x7f040002;
+        public static final int device_bind_activity=0x7f040003;
+        public static final int fragment_content=0x7f040004;
+        public static final int fragment_left=0x7f040005;
+        public static final int friend_listview=0x7f040006;
+        public static final int index_pager=0x7f040007;
+        public static final int left_menu=0x7f040008;
+        public static final int location_activity=0x7f040009;
+        public static final int login_activity=0x7f04000a;
+        public static final int regist_activity=0x7f04000b;
+        public static final int slidingmenumain=0x7f04000c;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -243,15 +282,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f050001;
     }
     public static final class styleable {
@@ -494,5 +526,83 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.hagk.dongni:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
+        /** Attributes that can be used with a Topbar.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #Topbar_leftBtn com.hagk.dongni:leftBtn}</code></td><td></td></tr>
+           <tr><td><code>{@link #Topbar_rightBtn com.hagk.dongni:rightBtn}</code></td><td></td></tr>
+           <tr><td><code>{@link #Topbar_titleColor com.hagk.dongni:titleColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #Topbar_titleSize com.hagk.dongni:titleSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #Topbar_titleText com.hagk.dongni:titleText}</code></td><td></td></tr>
+           </table>
+           @see #Topbar_leftBtn
+           @see #Topbar_rightBtn
+           @see #Topbar_titleColor
+           @see #Topbar_titleSize
+           @see #Topbar_titleText
+         */
+        public static final int[] Topbar = {
+            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
+            0x7f010012
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.hagk.dongni.R.attr#leftBtn}
+          attribute's value can be found in the {@link #Topbar} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.hagk.dongni:leftBtn
+        */
+        public static final int Topbar_leftBtn = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.hagk.dongni.R.attr#rightBtn}
+          attribute's value can be found in the {@link #Topbar} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.hagk.dongni:rightBtn
+        */
+        public static final int Topbar_rightBtn = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.hagk.dongni.R.attr#titleColor}
+          attribute's value can be found in the {@link #Topbar} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.hagk.dongni:titleColor
+        */
+        public static final int Topbar_titleColor = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.hagk.dongni.R.attr#titleSize}
+          attribute's value can be found in the {@link #Topbar} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+          @attr name com.hagk.dongni:titleSize
+        */
+        public static final int Topbar_titleSize = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.hagk.dongni.R.attr#titleText}
+          attribute's value can be found in the {@link #Topbar} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name com.hagk.dongni:titleText
+        */
+        public static final int Topbar_titleText = 0;
     };
 }

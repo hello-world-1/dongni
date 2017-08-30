@@ -8,8 +8,6 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="22" />
 
-    <!-- 权限 -->
-    <!-- 读取联系人权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- 拨打电话权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -57,6 +55,26 @@
 
     <!--
     <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        >
+        <activity
+            android:name="com.hagk.dongni.activity.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.hagk.dongni.activity.RegistActivity" />
+        <activity android:name="com.hagk.dongni.activity.LoginActivity" />
+        <activity android:name="com.hagk.dongni.activity.DeviceBindActivity" />
+
+    </application>
+    -->
+    <application
         android:name="com.hagk.dongni.activity.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -87,26 +105,7 @@
         <activity android:name="com.hagk.dongni.activity.RegistActivity" />
         <activity android:name="com.hagk.dongni.activity.LoginActivity" />
         <activity android:name="com.hagk.dongni.activity.DeviceBindActivity" />
-         <activity android:name="com.hagk.dongni.activity.BaiduLocation" />
-    </application>
-    -->
-
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
-        <activity
-            android:name="com.hagk.dongni.activity.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="com.hagk.dongni.activity.RegistActivity" />
-        <activity android:name="com.hagk.dongni.activity.LoginActivity" />
-        <activity android:name="com.hagk.dongni.activity.DeviceBindActivity" />
+        <activity android:name="com.hagk.dongni.activity.BaiduLocation" />
     </application>
 
 </manifest>

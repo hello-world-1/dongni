@@ -46,5 +46,9 @@
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\base_pager.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\base_pager.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_groupwidget.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\custom_groupwidget.xml"
     }
 ]

@@ -44,4 +44,27 @@
         <attr name="selectorDrawable" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="Topbar">
+        <attr name="titleText" format="string|reference" />
+        <attr name="titleSize" format="dimension|reference" />
+        <attr name="titleColor" format="color|reference" />
+
+        <attr name="leftBtn" format="reference"/>
+        <attr name="rightBtn" format="reference"/>
+
+    </declare-styleable>
+
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <attr name="src" format="reference"></attr>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="borderRadius" />
+        <attr name="type" />
+        <attr name="src" />
+    </declare-styleable>
+
 </resources>

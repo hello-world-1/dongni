@@ -1,16 +1,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical" >
 
-   <!--  <ImageView
-        android:layout_width="match_parent"
+    <com.hagk.dongni.view.TopBarView
+        android:id="@+id/topbar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" 
-         android:background="@null"
-        android:src="@drawable/title"/> -->
+        custom:titleText="我的消息"
+        custom:titleSize="15sp"
+        custom:titleColor="@android:color/white"
+        custom:leftBtn="@drawable/back_page"
+        custom:rightBtn="@drawable/edit_normal" />
 
     <LinearLayout
         android:layout_width="match_parent"

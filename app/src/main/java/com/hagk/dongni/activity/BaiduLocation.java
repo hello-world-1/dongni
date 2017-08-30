@@ -24,13 +24,14 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
+import com.hagk.dongni.R;
 import com.hagk.dongni.service.BaseStripAdapter;
 import com.hagk.dongni.service.StripListView;
 
-/**
- * 此demo用来展示如何结合定位SDK实现定位，并使用MyLocationOverlay绘制定位位置 同时展示如何使用自定义图标绘制并点击时弹出泡泡
- */
+// * 此demo用来展示如何结合定位SDK实现定位，并使用MyLocationOverlay绘制定位位置 同时展示如何使用自定义图标绘制并点击时弹出泡泡
+
 public class BaiduLocation extends Activity {
 	
 	// 定位相关
@@ -39,7 +40,7 @@ public class BaiduLocation extends Activity {
     private LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
 
-    MapView mMapView;
+    TextureMapView mMapView;
     BaiduMap mBaiduMap;
 
     StripListView stripListView;
@@ -55,7 +56,7 @@ public class BaiduLocation extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-       /* mContext = this;
+        mContext = this;
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         RelativeLayout layout = new RelativeLayout(this);
@@ -96,7 +97,7 @@ public class BaiduLocation extends Activity {
         requestLocButton.setOnClickListener(btnClickListener);
 
         // 地图初始化
-        mMapView = (MapView) mainview.findViewById(R.id.bmapView);
+        mMapView = (TextureMapView) mainview.findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         // 开启定位图层
         mBaiduMap.setMyLocationEnabled(true);
@@ -131,14 +132,13 @@ public class BaiduLocation extends Activity {
                 stripListView.setStripAdapter(mFloorListAdapter);
                 mMapBaseIndoorMapInfo = mapBaseIndoorMapInfo;
             }
-        });*/
+        });
         
     }
 
 
-    /**
-     * 定位SDK监听函数
-     */
+//     * 定位SDK监听函数
+
     public class MyLocationListenner implements BDLocationListener {
 
         private String lastFloor = null;

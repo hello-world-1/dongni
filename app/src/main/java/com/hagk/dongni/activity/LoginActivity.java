@@ -19,18 +19,31 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.view.TopBarView;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
 import com.hagk.dongni.utils.PrefUtils;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements TopBarView.onTitleBarClickListener {
 	TextView mBtnBindPhone;
 
 	EditText username;
 	EditText password;
 	Button login;
+
+	@Override
+	public void onBackClick() {
+		Toast.makeText(LoginActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
+
+	}
+	@Override
+	public void onRightClick() {
+		Toast.makeText(LoginActivity.this, "你点击了右侧按钮", Toast.LENGTH_SHORT).show();
+
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
