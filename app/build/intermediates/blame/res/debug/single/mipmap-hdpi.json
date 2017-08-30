@@ -8,6 +8,10 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-hdpi\\channel_comment_active.png"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\register_icon.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-hdpi\\register_icon.png"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\channel_comment_normal.png",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-hdpi\\channel_comment_normal.png"
     }

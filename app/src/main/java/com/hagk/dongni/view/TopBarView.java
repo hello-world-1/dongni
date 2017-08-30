@@ -25,7 +25,7 @@ public class TopBarView extends RelativeLayout
         implements  OnClickListener{
 
     private ImageView backView;
-    private ImageView rightView;
+//    private ImageView rightView;
     private TextView titleView;
 
     private String titleTextStr;
@@ -76,9 +76,9 @@ public class TopBarView extends RelativeLayout
                 case R.styleable.Topbar_leftBtn:
                     leftImage = ta.getDrawable(R.styleable.Topbar_leftBtn);
                     break;
-                case R.styleable.Topbar_rightBtn:
-                    rightImage = ta.getDrawable(R.styleable.Topbar_rightBtn);
-                    break;
+//                case R.styleable.Topbar_rightBtn:
+//                    rightImage = ta.getDrawable(R.styleable.Topbar_rightBtn);
+//                    break;
             }
         }
 
@@ -93,14 +93,14 @@ public class TopBarView extends RelativeLayout
 
         backView = (ImageView) layout.findViewById(R.id.back_image);
         titleView = (TextView) layout.findViewById(R.id.text_title);
-        rightView = (ImageView) layout.findViewById(R.id.right_image);
+//        rightView = (ImageView) layout.findViewById(R.id.right_image);
         backView.setOnClickListener(this);
-        rightView.setOnClickListener(this);
+//        rightView.setOnClickListener(this);
 
         if(null != leftImage)
             backView.setImageDrawable(leftImage);
-        if(null != rightImage)
-            rightView.setImageDrawable(rightImage);
+//        if(null != rightImage)
+//            rightView.setImageDrawable(rightImage);
         if(null != titleTextStr) {
             titleView.setText(titleTextStr);
             titleView.setTextSize(titleTextSize);
@@ -135,9 +135,9 @@ public class TopBarView extends RelativeLayout
      * 获取右侧按钮,默认不显示
      * @return
      */
-    public ImageView getRightView() {
-        return rightView;
-    }
+//    public ImageView getRightView() {
+//        return rightView;
+//    }
 
     private onTitleBarClickListener onMyClickListener;
 
@@ -158,7 +158,7 @@ public class TopBarView extends RelativeLayout
          */
         void onBackClick();
 
-        void onRightClick();
+//        void onRightClick();
     }
 
     @Override
@@ -170,10 +170,10 @@ public class TopBarView extends RelativeLayout
                 if(null != onMyClickListener)
                     onMyClickListener.onBackClick();
                 break;
-            case R.id.right_image:
-                if(null != onMyClickListener)
-                    onMyClickListener.onRightClick();
-                break;
+//            case R.id.right_image:
+//                if(null != onMyClickListener)
+//                    onMyClickListener.onRightClick();
+//                break;
         }
     }
 }

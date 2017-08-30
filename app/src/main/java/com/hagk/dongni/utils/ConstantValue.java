@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import android.os.Environment;
 
 public class ConstantValue {
-	public static final String BASE_URL = "http://hello-world-1.oicp.net:25773";
+	public static final String BASE_URL = "http://115.28.242.3:90";
 	public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/location/";
 	public static final String FRAGMENT_LEFT_MENU = "fragment_left_menu";
 	public static final String FRAGMENT_CONTENT = "fragment_content";

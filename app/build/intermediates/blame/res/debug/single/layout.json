@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_left.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_left.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_bind_activity.xml",

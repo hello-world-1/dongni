@@ -1,7 +1,0 @@
-#Wed Aug 30 13:34:30 GMT+08:00 2017
-base.0=D\:\\studioworkspace\\dongni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_74b2cf2cb6b7ed2b4835456021d4e39355fbcfea
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=D\:\\studioworkspace\\dongni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_c246265a5a5b1e922d26b5279848eec1102410f3\\classes.dex
-base.1=D\:\\studioworkspace\\dongni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_c246265a5a5b1e922d26b5279848eec1102410f3
-file.0=D\:\\studioworkspace\\dongni\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_74b2cf2cb6b7ed2b4835456021d4e39355fbcfea\\classes.dex

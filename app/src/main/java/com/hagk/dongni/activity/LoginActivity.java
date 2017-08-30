@@ -22,28 +22,36 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.view.CustomImageView;
 import com.hagk.dongni.view.TopBarView;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
 import com.hagk.dongni.utils.PrefUtils;
+import com.hdl.myhttputils.MyHttpUtils;
+import com.hdl.myhttputils.bean.StringCallBack;
 
 public class LoginActivity extends Activity implements TopBarView.onTitleBarClickListener {
 	TextView mBtnBindPhone;
 
 	EditText username;
 	EditText password;
+    TopBarView title;
+    CustomImageView picture;
 	Button login;
+    protected static final int SUCCESS = 0;
+    protected static final int ERROR = 1;
 
 	@Override
 	public void onBackClick() {
 		Toast.makeText(LoginActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
 
 	}
-	@Override
-	public void onRightClick() {
-		Toast.makeText(LoginActivity.this, "你点击了右侧按钮", Toast.LENGTH_SHORT).show();
-
-	}
+//	@Override
+//	public void onRightClick() {
+//		Toast.makeText(LoginActivity.this, "你点击了右侧按钮", Toast.LENGTH_SHORT).show();
+//
+//	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +61,8 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 
 		username = (EditText) findViewById(R.id.et_login_username);
 		password = (EditText) findViewById(R.id.et_login_password);
+        title = (TopBarView) findViewById(R.id.topbar);
+        picture = (CustomImageView) findViewById(R.id.picture);
 		login = (Button) findViewById(R.id.btn_login);
 		
 		username.setText(PrefUtils.getUsername(this, "username"));
@@ -73,7 +83,6 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 	public void forgetPassword(View view) {
 		Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
 		intent.putExtra("type", "forget");
-//		init_sms(intent);
 		System.out.println("forgetpassword button onclick");
 	}
 
@@ -81,21 +90,12 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 	public void regist(View view) {
 		Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
 		intent.putExtra("type", "regist");
-//		init_sms(intent);
 		System.out.println("regist button onclick");
 	}
 
 	Handler handler;
 	String str_username;
 	String str_password;
-	
-	/**
-	 * dp转px
-	 */
-	public int dip2px(int dip) {
-		float scale = LoginActivity.this.getResources().getDisplayMetrics().density;
-		return (int) (dip * scale + 0.5f);
-	}
 
 	/**
 	 * 保存文件
@@ -118,8 +118,7 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 	}
 
 	// 登录按钮点击触发事件
-	public void login(View view) {/*
-		System.out.println("login button onclick");
+	public void login(View view) {
 		str_username = username.getText().toString().trim();
 		str_password = password.getText().toString().trim();
 
@@ -136,7 +135,9 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 			return;
 		}
 
-		handler = new Handler() {
+        checkLogin(str_username, str_password);
+
+		/*handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
@@ -214,46 +215,31 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 					break;
 				}
 			}
-		};
-
-		checkLogin(str_username, str_password);
-	*/
-		Intent intent = new Intent(LoginActivity.this, DeviceBindActivity.class);
-		LoginActivity.this.startActivity(intent);
+		};*/
 	}
-
-	protected static final int SUCCESS = 0;
-	protected static final int ERROR = 1;
 
 	// 访问服务器,验证用户名和密码
 	public void checkLogin(final String str_username, final String str_password) {
 
-		new Thread() {
-			@Override
-			public void run() {
-				Map<String, Object> requestParamsMap = new HashMap<String, Object>();
-				requestParamsMap.put("username", str_username);
-				requestParamsMap.put("password", str_password);
-				requestParamsMap.put("type", "login");
+		Map<String, Object> params = new HashMap<>();//构造请求的参数
+		params.put("telephone", str_username);
+		params.put("password", str_password);
 
-				Map<String, Object> retValue = HttpPostUtils.doPost(ConstantValue.BASE_URL+"/androidlocation/LoginServlet",
-						requestParamsMap);
+		MyHttpUtils.build()//构建myhttputils
+				.url(ConstantValue.BASE_URL+"/api/user/signin")//请求的url
+				.addParams(params)
+				.onExecute(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+					@Override
+					public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
 
-				int code = (int) retValue.get("code");
+						Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+					}
 
-				if (code == 200) {
-					String value = (String) retValue.get("value");
-					Message msg = new Message();
-					msg.obj = value;
-					msg.what = SUCCESS;
-					handler.sendMessage(msg);
-				} else {
-					Message msg = new Message();
-					msg.what = ERROR;
-					handler.sendMessage(msg);
-				}
-			}
-		}.start();
+					@Override
+					public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
+						Toast.makeText(LoginActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+					}
+				});
 	}
 
 }

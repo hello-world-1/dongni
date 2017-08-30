@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="myhttputils-2.1.5">
+    <CLASSES>
+      <root url="file://E:/Android ADT/adt-bundle-windows-x86_64-20140321/.android/build-cache/c916e47cc0155f449f672c711dae867339fe4ef5/output/res" />
+      <root url="jar://E:/Android ADT/adt-bundle-windows-x86_64-20140321/.android/build-cache/c916e47cc0155f449f672c711dae867339fe4ef5/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.huangdali/myhttputils/2.1.5/96c0c535de2da4ae83157524190a26ca7f2f31c8/myhttputils-2.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
