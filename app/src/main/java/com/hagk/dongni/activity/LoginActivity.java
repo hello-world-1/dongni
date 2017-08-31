@@ -59,8 +59,8 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		login = (Button) findViewById(R.id.btn_login);
 
 		//如果之前登录成功过,则自动填写
-		username.setText(PrefUtils.getUsername(this, "username"));
-		password.setText(PrefUtils.getPassword(this, "password"));
+		username.setText(PrefUtils.getUsername(this));
+		password.setText(PrefUtils.getPassword(this));
 
 		//如果不为空,聚焦到登录按钮
 		if(!TextUtils.isEmpty(username.getText())){
@@ -71,7 +71,6 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		}
 		
 	}
-
 
 	// 忘记密码按钮点击触发事件
 	public void forgetPassword(View view) {
@@ -106,6 +105,34 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		bos.flush();
 		bos.close();
 	}
+	/*final String picture = result.split("#")[1];
+
+	if(PrefUtils.getFirstPicture(LoginActivity.this.getBaseContext(), "firstpicture" + str_username) == null){
+		new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				Bitmap bitmap;
+				try {
+					bitmap = Glide
+							.with(LoginActivity.this)
+							.load(picture)
+							.asBitmap()
+							.override(dip2px(44), dip2px(44))
+							.into(Target.SIZE_ORIGINAL,
+									Target.SIZE_ORIGINAL).get();
+					String fileName = picture.substring(picture.lastIndexOf("/")+1, picture.length());
+					saveFile(bitmap, fileName);
+
+					PrefUtils.setFirstPicture(
+							LoginActivity.this.getBaseContext(), "firstpicture" + str_username,ConstantValue.ALBUM_PATH + fileName);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}*/
 
 	// 登录按钮点击触发事件
 	public void login(View view) {
@@ -124,88 +151,7 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 			username.setText("");
 			return;
 		}
-
         checkLogin(str_username, str_password);
-
-		/*handler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-				switch (msg.what) {
-				case SUCCESS:
-					String result = (String) msg.obj;
-					System.out.println("LoginActivity result:" + result);
-					//验证成功后把用户名存到数据库中
-					PrefUtils.setUsername(LoginActivity.this.getBaseContext(), "username", str_username);
-					PrefUtils.setPassword(LoginActivity.this.getBaseContext(), "password", str_password);
-					
-					if (result.contains("success")) {
-						final String picture = result.split("#")[1];
-						
-						if(PrefUtils.getFirstPicture(LoginActivity.this.getBaseContext(), "firstpicture" + str_username) == null){
-							new Thread(new Runnable() {
-
-								@Override
-								public void run() {
-									Bitmap bitmap;
-									try {
-										bitmap = Glide
-												.with(LoginActivity.this)
-												.load(picture)
-												.asBitmap()
-												.override(dip2px(44), dip2px(44))
-												.into(Target.SIZE_ORIGINAL,
-														Target.SIZE_ORIGINAL).get();
-										String fileName = picture.substring(picture.lastIndexOf("/")+1, picture.length());
-										saveFile(bitmap, fileName);
-										
-										PrefUtils.setFirstPicture(
-												LoginActivity.this.getBaseContext(), "firstpicture" + str_username,ConstantValue.ALBUM_PATH + fileName);
-										
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-								}
-							}).start();
-						}
-						
-						Intent intent = new Intent(LoginActivity.this,
-								MainActivity.class);
-						intent.putExtra("username", str_username);
-						LoginActivity.this.startActivity(intent);
-						
-						//验证用户成功后修改用户的状态
-						new Thread() {
-							@Override
-							public void run() {
-								Map<String, Object> requestParamsMap = new HashMap<String, Object>();
-								requestParamsMap.put("username", str_username);
-								requestParamsMap.put("type", "changestatus");
-
-								HttpPostUtils.doPost(ConstantValue.BASE_URL+"/androidlocation/LoginServlet",
-										requestParamsMap);
-							}
-						}.start();
-						
-						System.out.println("inner");
-						// 跳转到下一个页面后不显示
-						LoginActivity.this.finish();
-					} else{
-						Toast.makeText(LoginActivity.this, "用户名或密码错误",
-								Toast.LENGTH_SHORT).show();
-						System.out.println("Error:" + result);
-						password.setText("");
-					}
-
-					break;
-					
-				default:
-					Toast.makeText(LoginActivity.this, "服务器错误",
-							Toast.LENGTH_SHORT).show();
-					password.setText("");
-					break;
-				}
-			}
-		};*/
 	}
 
 	// 访问服务器,验证用户名和密码
@@ -256,8 +202,6 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 						} catch (NullPointerException e) {
 							e.printStackTrace();
 						}
-
-
 					}
 
 					@Override

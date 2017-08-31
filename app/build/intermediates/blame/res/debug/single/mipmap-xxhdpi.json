@@ -1,6 +1,38 @@
 [
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\course.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\course.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\setting.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\setting.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\message.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\message.png"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\phq9.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\phq9.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\alert.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\alert.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\contact.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\contact.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\bindsuccess.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\bindsuccess.png"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\bind.png",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\mipmap-xxhdpi\\bind.png"
     }
 ]

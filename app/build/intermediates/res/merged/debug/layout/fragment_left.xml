@@ -3,184 +3,176 @@
     xmlns:customimage="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <!--显示头像-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/login_activity_image_margin_top"
-        android:layout_marginBottom="@dimen/login_activity_image_margin_top"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/login_activity_image_margin_top"
+        android:layout_marginTop="@dimen/login_activity_image_margin_top"
         android:orientation="horizontal">
 
         <com.hagk.dongni.view.CustomImageView
             android:id="@+id/picture"
             android:layout_width="@dimen/login_activity_image_width"
             android:layout_height="@dimen/login_activity_image_height"
-            customimage:src="@drawable/ic_launcher"
+            customimage:src="@mipmap/register_icon"
             customimage:type="circle" />
     </LinearLayout>
 
-	<!-- 中间的分割线 -->
+    <!-- 中间的分割线 -->
     <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:background="@color/left_devider" />
-    
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/left_devider" />
+
     <!-- 整个下部的布局 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- 消息条目的布局 -->
         <RelativeLayout
-            android:id="@+id/rl_friend_request"
+            android:id="@+id/rl_left_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
-            android:padding="15dp" >
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/chanel_home"
+                android:id="@+id/left_message_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/channel_comment_normal" />
+                android:background="@mipmap/message" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/chanel_home"
+                android:layout_toRightOf="@+id/left_message_image"
                 android:text="消息"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
 
         <!-- 预警条目的布局 -->
         <RelativeLayout
-            android:id="@+id/rl_location_request"
+            android:id="@+id/rl_left_alert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:padding="15dp" >
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/location_request"
+                android:id="@+id/left_alert_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/channel_comment_normal" />
+                android:background="@mipmap/alert" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/location_request"
+                android:layout_alignTop="@+id/left_alert_image"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/location_request"
-                android:text="定位请求"
+                android:layout_toRightOf="@+id/left_alert_image"
+                android:text="预警"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
 
         <!-- PHQ-9问题的布局 -->
         <RelativeLayout
-            android:id="@+id/rl_location_history"
+            android:id="@+id/rl_left_phq9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:padding="15dp" >
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/location_history"
+                android:id="@+id/left_phq9_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/channel_comment_normal" />
+                android:background="@mipmap/phq9" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/location_history"
+                android:layout_alignTop="@+id/left_phq9_image"
                 android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@+id/location_history"
-                android:text="定位历史"
+                android:layout_toRightOf="@+id/left_phq9_image"
+                android:text="PHQ-9"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
 
         <!-- 我的课程条目布局 -->
         <RelativeLayout
-            android:id="@+id/rl_contact"
+            android:id="@+id/rl_left_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/tv_otfdsfer"
+                android:id="@+id/left_course_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/channel_comment_normal" />
-            <!--android:layout_alignTop="@+id/tv_other"-->
-            <!--android:layout_toRightOf="@+id/tv_other"-->
+                android:background="@mipmap/course" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_alignTop="@+id/left_course_image"
                 android:layout_marginLeft="30dp"
-
-                android:text="手机通信录"
+                android:layout_toRightOf="@+id/left_course_image"
+                android:text="我的课程"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
 
         <!-- 联系人条目布局 -->
         <RelativeLayout
-            android:id="@+id/rl_person_info"
+            android:id="@+id/rl_left_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:padding="15dp">
 
             <ImageView
-                android:id="@+id/tv_ogdsgther"
+                android:id="@+id/left_contact_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/channel_comment_normal" />
-
-            <!--android:layout_alignTop="@+id/tv_other"-->
-            <!--android:layout_toRightOf="@+id/tv_other"-->
+                android:background="@mipmap/contact" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_alignTop="@+id/left_contact_image"
                 android:layout_marginLeft="30dp"
-
-                android:text="手机通信录"
+                android:layout_toRightOf="@+id/left_contact_image"
+                android:text="联系人"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
-        
+
         <!-- 设置条目布局 -->
         <RelativeLayout
-            android:id="@+id/rl_otfsdafher"
+            android:id="@+id/rl_left_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:padding="15dp" >
+            android:padding="15dp">
 
             <ImageView
-                android:id="@+id/tv_otfdsfasher"
+                android:id="@+id/left_setting_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/channel_comment_normal" />
-
-            <!--android:layout_alignTop="@+id/tv_other"-->
-            <!--android:layout_toRightOf="@+id/tv_other"-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_alignTop="@+id/left_setting_image"
                 android:layout_marginLeft="30dp"
-
-                android:text="手机通信录"
+                android:layout_toRightOf="@+id/left_setting_image"
+                android:text="设置"
                 android:textColor="@color/text_black" />
         </RelativeLayout>
     </LinearLayout>

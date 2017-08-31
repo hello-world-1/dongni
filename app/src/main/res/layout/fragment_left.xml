@@ -95,7 +95,7 @@
                 android:id="@+id/left_phq9_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/PHQ9" />
+                android:background="@mipmap/phq9" />
 
             <TextView
                 android:layout_width="wrap_content"

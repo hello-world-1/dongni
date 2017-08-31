@@ -111,19 +111,23 @@ public class LeftMenuFragment extends BaseFragment implements
                 setMenuPager(0);
                 break;
             case R.id.rl_left_alert:
+                setMenuPager(1);
                 break;
             case R.id.rl_left_phq9:
+                setMenuPager(2);
                 break;
-		case R.id.rl_left_course:
-			break;
+            case R.id.rl_left_course:
+                setMenuPager(3);
+                break;
             case R.id.rl_left_contact:
-                setMenuPager(0);
+                setMenuPager(4);
                 break;
             case R.id.rl_left_setting:
-                setMenuPager(0);
+                setMenuPager(5);
                 break;
             case R.id.picture:
-                setMenuPager(0);
+                setMenuPager(6);
+                //个人信息pager
                 break;
         }
     }

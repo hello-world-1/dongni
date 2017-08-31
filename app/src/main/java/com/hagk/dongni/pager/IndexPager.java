@@ -35,6 +35,7 @@ public class IndexPager extends BasePager {
 		pagerList.add(new CoursePager(mActivity));
 		pagerList.add(new ContactPager(mActivity));
 		pagerList.add(new SettingPager(mActivity));
+		pagerList.add(new InfoPager(mActivity));
 	}
 
 	public void setCurrentMenuPager(int position) {
