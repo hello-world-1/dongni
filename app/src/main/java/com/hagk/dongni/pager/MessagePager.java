@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.RegistActivity;
 
 public class MessagePager extends BaseMenuDetailPager {

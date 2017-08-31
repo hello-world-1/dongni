@@ -31,5 +31,6 @@
     <color name="button_text_color">#DFF9F0</color>
 
     <color name="holo_title_bar_color">#ff1ec35f</color>
-    
+    <color name="lightblue">#ff68bdf9</color>
+
 </resources>

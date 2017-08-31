@@ -191,16 +191,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int left_text_color=0x7f07000d;
         public static final int left_text_color_no=0x7f07000e;
         public static final int lightblack=0x7f07000f;
-        public static final int lightgray=0x7f070010;
-        public static final int me_top_color=0x7f070011;
-        public static final int menu_bg_normal=0x7f070012;
-        public static final int menu_bg_press=0x7f070013;
-        public static final int register_button_color=0x7f070014;
-        public static final int register_button_text_color=0x7f070015;
-        public static final int rg_bg=0x7f070016;
-        public static final int text_black=0x7f070017;
-        public static final int text_light=0x7f070018;
-        public static final int white_bg=0x7f070019;
+        public static final int lightblue=0x7f070010;
+        public static final int lightgray=0x7f070011;
+        public static final int me_top_color=0x7f070012;
+        public static final int menu_bg_normal=0x7f070013;
+        public static final int menu_bg_press=0x7f070014;
+        public static final int register_button_color=0x7f070015;
+        public static final int register_button_text_color=0x7f070016;
+        public static final int rg_bg=0x7f070017;
+        public static final int text_black=0x7f070018;
+        public static final int text_light=0x7f070019;
+        public static final int white_bg=0x7f07001a;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
@@ -224,16 +225,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int edit=0x7f020001;
         public static final int edit_normal=0x7f020002;
         public static final int ic_launcher=0x7f020003;
+        public static final int myradio_active=0x7f020004;
+        public static final int myradio_inactive=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002f;
+        public static final int action_settings=0x7f080030;
         public static final int back_image=0x7f08000b;
         public static final int bind_image=0x7f08000d;
         public static final int bmapView=0x7f080021;
-        public static final int btn_getcode=0x7f08002a;
+        public static final int btn_getcode=0x7f08002b;
         public static final int btn_login=0x7f080025;
-        public static final int btn_regist=0x7f08002d;
+        public static final int btn_regist=0x7f08002e;
         public static final int button1=0x7f080022;
+        public static final int choiceGroup=0x7f080028;
         public static final int circle=0x7f080001;
         public static final int et_imei_number=0x7f08000e;
         public static final int et_login_password=0x7f080024;
@@ -241,10 +245,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int et_none=0x7f080026;
         public static final int et_phone_number=0x7f08000f;
         public static final int et_regist=0x7f080027;
-        public static final int et_regist_authcode=0x7f080029;
-        public static final int et_regist_password=0x7f08002b;
-        public static final int et_regist_re_password=0x7f08002c;
-        public static final int et_regist_username=0x7f080028;
+        public static final int et_regist_authcode=0x7f08002a;
+        public static final int et_regist_password=0x7f08002c;
+        public static final int et_regist_re_password=0x7f08002d;
+        public static final int et_regist_username=0x7f080029;
         public static final int fl_cc=0x7f080009;
         public static final int fl_left_menu=0x7f080020;
         public static final int friend_lt=0x7f08001e;
@@ -270,7 +274,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_left_setting=0x7f08001c;
         public static final int round=0x7f080002;
         public static final int selected_view=0x7f080000;
-        public static final int slidingmenumain=0x7f08002e;
+        public static final int slidingmenumain=0x7f08002f;
         public static final int text_title=0x7f08000a;
         public static final int topbar=0x7f08000c;
         public static final int vp_content=0x7f080010;
@@ -287,8 +291,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int left_menu=0x7f040008;
         public static final int location_activity=0x7f040009;
         public static final int login_activity=0x7f04000a;
-        public static final int regist_activity=0x7f04000b;
-        public static final int slidingmenumain=0x7f04000c;
+        public static final int phq9_listview=0x7f04000b;
+        public static final int regist_activity=0x7f04000c;
+        public static final int slidingmenumain=0x7f04000d;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -325,16 +330,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static final int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f050001;
+        public static final int Dialog=0x7f050002;
+        public static final int main_bar_text_style=0x7f050003;
+        public static final int sdw_79351b=0x7f050004;
+        public static final int sdw_white=0x7f050005;
+        public static final int text_15_666666_sdw=0x7f050006;
+        public static final int text_15_ffffff_sdw=0x7f050007;
+        public static final int text_16_666666=0x7f050008;
+        public static final int text_18_ffffff=0x7f050009;
+        public static final int weekName=0x7f05000a;
     }
     public static final class styleable {
         /** Attributes that can be used with a CustomImageView.

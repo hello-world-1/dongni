@@ -52,9 +52,11 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.login_activity);
 
+		title = (TopBarView) findViewById(R.id.topbar);
+		title.setClickListener(this);
+
 		username = (EditText) findViewById(R.id.et_login_username);
 		password = (EditText) findViewById(R.id.et_login_password);
-        title = (TopBarView) findViewById(R.id.topbar);
         picture = (CustomImageView) findViewById(R.id.picture);
 		login = (Button) findViewById(R.id.btn_login);
 
@@ -157,7 +159,7 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 	// 访问服务器,验证用户名和密码
 	public void checkLogin(final String str_username, final String str_password) {
 
-		Map<String, Object> params = new HashMap<>();//构造请求的参数
+		Map<String, Object> params = new HashMap<>();
 		params.put("telephone", str_username);
 		params.put("password", str_password);
 

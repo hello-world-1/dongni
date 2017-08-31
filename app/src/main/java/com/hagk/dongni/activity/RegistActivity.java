@@ -20,6 +20,7 @@ import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
 import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
 import com.hdl.myhttputils.utils.FailedMsgUtils;
@@ -29,21 +30,30 @@ import java.util.Map;
 
 import static android.R.id.content;
 
-public class RegistActivity extends Activity {
+public class RegistActivity extends Activity implements TopBarView.onTitleBarClickListener{
     EditText username;
     EditText password;
     EditText repassword;
     EditText authode;
+    TopBarView title;
     private String successCode;
     Button regist;
-
     String type;
+
+    @Override
+    public void onBackClick() {
+        Toast.makeText(RegistActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.regist_activity);
+
+        title = (TopBarView) findViewById(R.id.topbar);
+        title.setClickListener(this);
+
         username = (EditText) findViewById(R.id.et_regist_username);
         authode = (EditText) findViewById(R.id.et_regist_authcode);
         password = (EditText) findViewById(R.id.et_regist_password);
@@ -95,6 +105,7 @@ public class RegistActivity extends Activity {
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 successCode = json.get("code").getAsString();
+                                Toast.makeText(RegistActivity.this, "发送短信验证码成功", Toast.LENGTH_SHORT).show();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 Toast.makeText(RegistActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
                                 return;
@@ -189,7 +200,7 @@ public class RegistActivity extends Activity {
         MyHttpUtils.build()//构建myhttputils
                 .url(ConstantValue.BASE_URL + "/api/user/signup")//请求的url
                 .addParams(params)
-                .onExecute(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+                .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
                     @Override
                     public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
                         JsonParser parse = new JsonParser();
@@ -198,7 +209,8 @@ public class RegistActivity extends Activity {
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 // success
-
+                                // TODO 注册成功后的处理
+                                Toast.makeText(RegistActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();
@@ -207,7 +219,6 @@ public class RegistActivity extends Activity {
                                 } else if (4 == errcode) {
                                     Toast.makeText(RegistActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
                                 }
-                                return;
                             }
                         } catch (NullPointerException e) {
                             e.printStackTrace();

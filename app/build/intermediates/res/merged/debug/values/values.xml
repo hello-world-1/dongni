@@ -22,6 +22,7 @@
     <color name="left_text_color">#214067</color>
     <color name="left_text_color_no">#8A8A8D</color>
     <color name="lightblack">#696969</color>
+    <color name="lightblue">#ff68bdf9</color>
     <color name="lightgray">#F7F7F7</color>
     <color name="me_top_color">#777777</color>
     <color name="menu_bg_normal">#f0f1f3</color>
@@ -55,7 +56,7 @@
     <dimen name="register_button_text_size">16sp</dimen>
     <dimen name="register_item_margin_left">35dp</dimen>
     <dimen name="register_item_margin_right">35dp</dimen>
-    <dimen name="register_item_margin_top">100dp</dimen>
+    <dimen name="register_item_margin_top">15dp</dimen>
     <dimen name="title_bar_left_picture_layout_height">40dp</dimen>
     <dimen name="title_bar_left_picture_layout_marginLeft">12dp</dimen>
     <dimen name="title_bar_left_picture_layout_width">40dp</dimen>
@@ -75,13 +76,57 @@
     <string name="register_button">注册</string>
     <string name="register_get_authcode">获取验证码</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
+    </style>
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <style name="main_bar_text_style">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="sdw_79351b">
+        <item name="android:shadowColor">#ff79351b</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    <style name="sdw_white">
+        <item name="android:shadowColor">#7fffffff</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.65</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+    <style name="text_15_666666_sdw" parent="@style/sdw_white">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">#ff666666</item>
+    </style>
+    <style name="text_15_ffffff_sdw" parent="@style/sdw_79351b">
+        <item name="android:textSize">15.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="text_16_666666">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textColor">#ff666666</item>
+    </style>
+    <style name="text_18_ffffff">
+        <item name="android:textSize">18.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="weekName">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">14sp</item>
     </style>
 </resources>
