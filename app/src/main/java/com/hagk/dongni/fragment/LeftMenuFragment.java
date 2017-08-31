@@ -54,15 +54,15 @@ public class LeftMenuFragment extends BaseFragment implements
         locationHistory = (RelativeLayout) view
                 .findViewById(R.id.rl_location_history);
         other = (RelativeLayout) view.findViewById(R.id.rl_contact);
-        personInfo = (LinearLayout) view.findViewById(R.id.ll_person_info);
+//        personInfo = (LinearLayout) view.findViewById(R.id.ll_person_info);
         // 设置监听事件
         friendRequest.setOnClickListener(this);
         locationRequest.setOnClickListener(this);
         locationHistory.setOnClickListener(this);
         other.setOnClickListener(this);
-        personInfo.setOnClickListener(this);
+//        personInfo.setOnClickListener(this);
 
-        icon = (ImageView) view.findViewById(R.id.icon);
+//        icon = (ImageView) view.findViewById(R.id.icon);
         return view;
     }
 
@@ -128,9 +128,9 @@ public class LeftMenuFragment extends BaseFragment implements
                 break;
 //		case R.id.rl_other:
 //			break;
-            case R.id.icon:
-                setMenuPager(0);
-                break;
+//            case R.id.icon:
+//                setMenuPager(0);
+//                break;
         }
     }
 

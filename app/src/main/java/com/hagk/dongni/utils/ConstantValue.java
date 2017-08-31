@@ -12,6 +12,8 @@ public class ConstantValue {
 	public static final String FRAGMENT_CONTENT = "fragment_content";
 	public static final int LEFT_MENU_WIDTH = 200;
 	public static final String TXT_EMPTY = "输入值不能为空";
+	public static final String SUCCESS_STATUS = "success";
+	public static final String ERROR_STATUS = "error";
 	public static final String PHONE_NUMBER_FORMAT_ERROR = "手机号输入格式不正确";
 	public static ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 }

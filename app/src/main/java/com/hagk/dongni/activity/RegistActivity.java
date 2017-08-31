@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
@@ -31,12 +34,10 @@ public class RegistActivity extends Activity {
     EditText password;
     EditText repassword;
     EditText authode;
+    private String successCode;
     Button regist;
 
     String type;
-    Handler handler;
-    protected static final int SUCCESS = 0;
-    protected static final int ERROR = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,6 @@ public class RegistActivity extends Activity {
         password = (EditText) findViewById(R.id.et_regist_password);
         repassword = (EditText) findViewById(R.id.et_regist_re_password);
         regist = (Button) findViewById(R.id.btn_regist);
-        initHandler();
 
 //		Intent intent = getIntent();
 //		type = intent.getStringExtra("type");
@@ -83,19 +83,33 @@ public class RegistActivity extends Activity {
         params.put("telephone", phoneNumber);
 
         MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL+"/api/user/sendCode")//请求的url
+                .url(ConstantValue.BASE_URL + "/api/user/sendCode")//请求的url
                 .addParams(params)
-                .onExecute(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+                .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
                     @Override
                     public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
 
-                        Toast.makeText(RegistActivity.this, result, Toast.LENGTH_SHORT).show();
+                        JsonParser parse = new JsonParser();
+                        try {
+                            JsonObject json = (JsonObject) parse.parse(result);
+                            String status = json.get("status").getAsString();
+                            if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+                                successCode = json.get("code").getAsString();
+                            } else if (ConstantValue.ERROR_STATUS.equals(status)) {
+                                Toast.makeText(RegistActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (NullPointerException e) {
+                            e.printStackTrace();
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
                     public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
-//                        ToastUtils.showToast(UpperCaseActivity.this, FailedMsgUtils.getErrMsgStr(throwable));
                         Toast.makeText(RegistActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+                        throwable.printStackTrace();
                     }
                 });
                 /*.setJavaBean(LoginBean.class)
@@ -112,27 +126,15 @@ public class RegistActivity extends Activity {
                 });*/
     }
 
-    public void initHandler() {
-        handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                switch (msg.what) {
-                    case SUCCESS:
-                        String result = (String) msg.obj;
-                        Toast.makeText(RegistActivity.this, "发送验证码成功 :" + result, Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-    }
-
     // 注册或者重置密码点击事件
     public void regist(View view) {
         final String str_username = username.getText().toString();
         final String str_password = password.getText().toString();
         final String str_repassword = repassword.getText().toString();
+        final String str_authode = authode.getText().toString();
 
         if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_password)
-                || TextUtils.isEmpty(str_repassword)) {
+                || TextUtils.isEmpty(str_repassword) || TextUtils.isEmpty(str_repassword)) {
             Toast.makeText(RegistActivity.this, "输入值不能为空", Toast.LENGTH_SHORT)
                     .show();
             return;
@@ -152,6 +154,13 @@ public class RegistActivity extends Activity {
                     .show();
             return;
         }
+
+        if (!str_authode.equals(successCode)) {
+            authode.setText("");
+            Toast.makeText(RegistActivity.this, "验证码输入错误", Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
         checkLogin(str_username, str_password);
     }
 
@@ -163,12 +172,33 @@ public class RegistActivity extends Activity {
         params.put("password", str_password);
 
         MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL+"/api/user/signup")//请求的url
+                .url(ConstantValue.BASE_URL + "/api/user/signup")//请求的url
                 .addParams(params)
                 .onExecute(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
                     @Override
                     public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
-                        Toast.makeText(RegistActivity.this, result, Toast.LENGTH_SHORT).show();
+                        JsonParser parse = new JsonParser();
+                        try {
+                            JsonObject json = (JsonObject) parse.parse(result);
+                            String status = json.get("status").getAsString();
+                            if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+                                // success
+
+                            } else if (ConstantValue.ERROR_STATUS.equals(status)) {
+                                //error
+                                int errcode = json.get("errcode").getAsInt();
+                                if (3 == errcode) { //手机号已经注册
+                                    Toast.makeText(RegistActivity.this, "该手机号已注册请直接登录", Toast.LENGTH_SHORT).show();
+                                } else if (4 == errcode) {
+                                    Toast.makeText(RegistActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
+                                }
+                                return;
+                            }
+                        } catch (NullPointerException e) {
+                            e.printStackTrace();
+                        } catch (JsonSyntaxException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override

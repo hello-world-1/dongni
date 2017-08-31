@@ -21,6 +21,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.OthersUtils;
 import com.hagk.dongni.view.CustomImageView;
@@ -232,6 +235,29 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 					@Override
 					public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
 
+						JsonParser parse = new JsonParser();
+						try {
+							JsonObject json = (JsonObject) parse.parse(result);
+							json.get("code").getAsString();
+//							http://www.cnblogs.com/kaituorensheng/p/6616126.html
+//							System.out.println("resultcode:" + json.get("resultcodeu").getAsInt());
+//							System.out.println("reason:" + json.get("reason").getAsString());
+//							JsonObject result = json.get("result").getAsJsonObject();
+//							JsonObject today = result.get("today").getAsJsonObject();
+//							System.out.println("weak:" + today.get("week").getAsString());
+//							System.out.println("weather:" + today.get("weather").getAsString());
+//							JsonArray futureArray = result.get("future").getAsJsonArray();
+//							for (int i = 0; i < futureArray.size(); ++i) {
+//								JsonObject subObj = futureArray.get(i).getAsJsonObject();
+//								System.out.println("------");
+//								System.out.println("week:" + subObj.get("week").getAsString());
+//								System.out.println("weather:" + subObj.get("weather").getAsString());
+//							}
+						}  catch (NullPointerException e) {
+							e.printStackTrace();
+						}  catch (JsonSyntaxException e){
+							e.printStackTrace();
+						}
 						Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
 					}
 
