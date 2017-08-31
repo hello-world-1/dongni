@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class ChoiceGroup extends LinearLayout {
 
-    private int column = 0;//列数
+    private int column = 4;//列数
 
     private int currentIndex = 0;//当前按钮下标
 
@@ -105,6 +105,7 @@ public class ChoiceGroup extends LinearLayout {
                     @Override
                     public void OnValueChanged(String value) {
                         setCurrentValue(value);
+                        //点击一个条目时通知PHQ9Pager
                         onValueChangedListner.OnValueChanged(value);
                         clearSelected(currentIndex);
                     }

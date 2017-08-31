@@ -229,15 +229,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int myradio_inactive=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f080030;
+        public static final int action_settings=0x7f080033;
         public static final int back_image=0x7f08000b;
         public static final int bind_image=0x7f08000d;
         public static final int bmapView=0x7f080021;
-        public static final int btn_getcode=0x7f08002b;
+        public static final int btn_commit=0x7f080029;
+        public static final int btn_getcode=0x7f08002e;
         public static final int btn_login=0x7f080025;
-        public static final int btn_regist=0x7f08002e;
+        public static final int btn_regist=0x7f080031;
         public static final int button1=0x7f080022;
-        public static final int choiceGroup=0x7f080028;
         public static final int circle=0x7f080001;
         public static final int et_imei_number=0x7f08000e;
         public static final int et_login_password=0x7f080024;
@@ -245,10 +245,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int et_none=0x7f080026;
         public static final int et_phone_number=0x7f08000f;
         public static final int et_regist=0x7f080027;
-        public static final int et_regist_authcode=0x7f08002a;
-        public static final int et_regist_password=0x7f08002c;
-        public static final int et_regist_re_password=0x7f08002d;
-        public static final int et_regist_username=0x7f080029;
+        public static final int et_regist_authcode=0x7f08002d;
+        public static final int et_regist_password=0x7f08002f;
+        public static final int et_regist_re_password=0x7f080030;
+        public static final int et_regist_username=0x7f08002c;
         public static final int fl_cc=0x7f080009;
         public static final int fl_left_menu=0x7f080020;
         public static final int friend_lt=0x7f08001e;
@@ -263,7 +263,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ly_content=0x7f080008;
         public static final int margin=0x7f080006;
         public static final int none=0x7f080007;
+        public static final int phq9_listview=0x7f080028;
         public static final int picture=0x7f080011;
+        public static final int question_choiceGroup=0x7f08002b;
+        public static final int question_textview=0x7f08002a;
         public static final int register_tv=0x7f08001f;
         public static final int right=0x7f080004;
         public static final int rl_left_alert=0x7f080014;
@@ -274,7 +277,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_left_setting=0x7f08001c;
         public static final int round=0x7f080002;
         public static final int selected_view=0x7f080000;
-        public static final int slidingmenumain=0x7f08002f;
+        public static final int slidingmenumain=0x7f080032;
         public static final int text_title=0x7f08000a;
         public static final int topbar=0x7f08000c;
         public static final int vp_content=0x7f080010;
@@ -292,8 +295,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int location_activity=0x7f040009;
         public static final int login_activity=0x7f04000a;
         public static final int phq9_listview=0x7f04000b;
-        public static final int regist_activity=0x7f04000c;
-        public static final int slidingmenumain=0x7f04000d;
+        public static final int phq9_listview_item=0x7f04000c;
+        public static final int regist_activity=0x7f04000d;
+        public static final int slidingmenumain=0x7f04000e;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

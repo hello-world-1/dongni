@@ -41,7 +41,8 @@ public class IndexPager extends BasePager {
 	public void setCurrentMenuPager(int position) {
 		BaseMenuDetailPager menuPsger = pagerList.get(position);
 		flContent.removeAllViews();// 清除baserpager里面framelayout的布局（中间显示的部分）
-		flContent.addView(menuPsger.mRootView);
+		//先初始化数据
+		flContent.addView(menuPsger.mRootView);//initView
 		menuPsger.initData();// 初始化数据
 	}
 }
