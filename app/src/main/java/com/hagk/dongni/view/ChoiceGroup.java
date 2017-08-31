@@ -108,6 +108,7 @@ public class ChoiceGroup extends LinearLayout {
                         onValueChangedListner.OnValueChanged(value);
                         clearSelected(currentIndex);
                     }
+
                 });
                 map.put(column * i + j,button);
                 linearLayout.addView(button);
