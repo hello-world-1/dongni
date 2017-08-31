@@ -36,8 +36,7 @@
             android:id="@+id/picture"
             android:layout_width="@dimen/login_activity_image_width"
             android:layout_height="@dimen/login_activity_image_height"
-            customimage:borderRadius="10dp"
-            customimage:src="@drawable/ic_launcher"
+            customimage:src="@mipmap/register_icon"
             customimage:type="round" />
     </LinearLayout>
 

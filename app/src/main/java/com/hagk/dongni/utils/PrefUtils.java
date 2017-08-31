@@ -23,18 +23,6 @@ public class PrefUtils {
 		sp.edit().putBoolean(key, value).commit();
 	}
 	
-	public static String getUsername(Context ctx, String key) {
-		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
-				Context.MODE_PRIVATE);
-		return sp.getString(key, null);
-	}
-	
-	public static void setUsername(Context ctx, String key, String username) {
-		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
-				Context.MODE_PRIVATE);
-		sp.edit().putString(key, username).commit();
-	}
-	
 	/*public static String getPictureUrl(Context ctx, String key) {
 		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
 				Context.MODE_PRIVATE);
@@ -46,17 +34,53 @@ public class PrefUtils {
 				Context.MODE_PRIVATE);
 		sp.edit().putString(key, pictureUrl).commit();
 	}*/
+
+	public static String getUserID(Context ctx, String key) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		return sp.getString(key, null);
+	}
+
+	public static void setUserID(Context ctx, String key, String value) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		sp.edit().putString(key, value).commit();
+	}
 	
-	public static String getPassword(Context ctx, String key) {
+	public static String getToken(Context ctx, String key) {
 		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
 				Context.MODE_PRIVATE);
 		return sp.getString(key, null);
 	}
 	
-	public static void setPassword(Context ctx, String key, String password) {
+	public static void setToken(Context ctx, String key, String value) {
 		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
 				Context.MODE_PRIVATE);
-		sp.edit().putString(key, password).commit();
+		sp.edit().putString(key, value).commit();
+	}
+
+	public static String getUsername(Context ctx, String key) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		return sp.getString(key, null);
+	}
+
+	public static void setUsername(Context ctx, String key, String value) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		sp.edit().putString(key, value).commit();
+	}
+
+	public static String getPassword(Context ctx, String key) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		return sp.getString(key, null);
+	}
+
+	public static void setPassword(Context ctx, String key, String value) {
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		sp.edit().putString(key, value).commit();
 	}
 
 	public static void setFirstPicture(Context ctx, String key, String picture) {

@@ -35,26 +35,16 @@ import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
 
 public class LoginActivity extends Activity implements TopBarView.onTitleBarClickListener {
-	TextView mBtnBindPhone;
-
 	EditText username;
 	EditText password;
     TopBarView title;
     CustomImageView picture;
 	Button login;
-    protected static final int SUCCESS = 0;
-    protected static final int ERROR = 1;
 
 	@Override
 	public void onBackClick() {
 		Toast.makeText(LoginActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
-
 	}
-//	@Override
-//	public void onRightClick() {
-//		Toast.makeText(LoginActivity.this, "你点击了右侧按钮", Toast.LENGTH_SHORT).show();
-//
-//	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +57,12 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
         title = (TopBarView) findViewById(R.id.topbar);
         picture = (CustomImageView) findViewById(R.id.picture);
 		login = (Button) findViewById(R.id.btn_login);
-		
+
+		//如果之前登录成功过,则自动填写
 		username.setText(PrefUtils.getUsername(this, "username"));
-		
 		password.setText(PrefUtils.getPassword(this, "password"));
-		
+
+		//如果不为空,聚焦到登录按钮
 		if(!TextUtils.isEmpty(username.getText())){
 			login.setFocusable(true);
 			login.setFocusableInTouchMode(true);
@@ -96,10 +87,6 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		System.out.println("regist button onclick");
 	}
 
-	Handler handler;
-	String str_username;
-	String str_password;
-
 	/**
 	 * 保存文件
 	 * 
@@ -122,8 +109,8 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 
 	// 登录按钮点击触发事件
 	public void login(View view) {
-		str_username = username.getText().toString().trim();
-		str_password = password.getText().toString().trim();
+		String str_username = username.getText().toString().trim();
+		String str_password = password.getText().toString().trim();
 
 		if (TextUtils.isEmpty(str_username) || TextUtils.isEmpty(str_password)) {
 			Toast.makeText(LoginActivity.this, "输入值不能为空", Toast.LENGTH_SHORT)
@@ -231,34 +218,46 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		MyHttpUtils.build()//构建myhttputils
 				.url(ConstantValue.BASE_URL+"/api/user/signin")//请求的url
 				.addParams(params)
-				.onExecute(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+				.onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
 					@Override
 					public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
-
 						JsonParser parse = new JsonParser();
 						try {
 							JsonObject json = (JsonObject) parse.parse(result);
-							json.get("code").getAsString();
-//							http://www.cnblogs.com/kaituorensheng/p/6616126.html
-//							System.out.println("resultcode:" + json.get("resultcodeu").getAsInt());
-//							System.out.println("reason:" + json.get("reason").getAsString());
-//							JsonObject result = json.get("result").getAsJsonObject();
-//							JsonObject today = result.get("today").getAsJsonObject();
-//							System.out.println("weak:" + today.get("week").getAsString());
-//							System.out.println("weather:" + today.get("weather").getAsString());
-//							JsonArray futureArray = result.get("future").getAsJsonArray();
-//							for (int i = 0; i < futureArray.size(); ++i) {
-//								JsonObject subObj = futureArray.get(i).getAsJsonObject();
-//								System.out.println("------");
-//								System.out.println("week:" + subObj.get("week").getAsString());
-//								System.out.println("weather:" + subObj.get("weather").getAsString());
-//							}
-						}  catch (NullPointerException e) {
-							e.printStackTrace();
-						}  catch (JsonSyntaxException e){
+							String status = json.get("status").getAsString();
+							if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+								//登录成功,把用户数据保存到数据库中
+								JsonObject user = json.get("user").getAsJsonObject();
+								String userID = user.get("userID").getAsString();
+								String token = user.get("token").getAsString();
+								//保存用户的ID
+								PrefUtils.setUserID(LoginActivity.this.getBaseContext(), "userID", userID);
+								//保存用户的token
+								PrefUtils.setToken(LoginActivity.this.getBaseContext(), "token", token);
+								//保存用户的用户名
+								PrefUtils.setUsername(LoginActivity.this.getBaseContext(), "username", str_username);
+								//保存用户的密码
+								PrefUtils.setPassword(LoginActivity.this.getBaseContext(), "password", str_password);
+
+								//TODO 跳转到其他的activity
+							} else if (ConstantValue.ERROR_STATUS.equals(status)) {
+								//error
+								int errcode = json.get("errcode").getAsInt();
+								if (3 == errcode) { //手机号未注册
+									Toast.makeText(LoginActivity.this, "该手机号未注册", Toast.LENGTH_SHORT).show();
+								} else if (4 == errcode) {
+									Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+								}else if (2 == errcode) {
+									Toast.makeText(LoginActivity.this, "服务器内部错误", Toast.LENGTH_SHORT).show();
+								}else if (6 == errcode) {
+									Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+								}
+							}
+						} catch (NullPointerException e) {
 							e.printStackTrace();
 						}
-						Toast.makeText(LoginActivity.this, result, Toast.LENGTH_SHORT).show();
+
+
 					}
 
 					@Override

@@ -99,6 +99,21 @@ public class RegistActivity extends Activity {
                                 Toast.makeText(RegistActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
                                 return;
                             }
+//							http://www.cnblogs.com/kaituorensheng/p/6616126.html
+//							System.out.println("resultcode:" + json.get("resultcodeu").getAsInt());
+//							System.out.println("reason:" + json.get("reason").getAsString());
+//							JsonObject result = json.get("result").getAsJsonObject();
+//							JsonObject today = result.get("today").getAsJsonObject();
+//							System.out.println("weak:" + today.get("week").getAsString());
+//							System.out.println("weather:" + today.get("weather").getAsString());
+//							JsonArray futureArray = result.get("future").getAsJsonArray();
+//							for (int i = 0; i < futureArray.size(); ++i) {
+//								JsonObject subObj = futureArray.get(i).getAsJsonObject();
+//								System.out.println("------");
+//								System.out.println("week:" + subObj.get("week").getAsString());
+//								System.out.println("weather:" + subObj.get("weather").getAsString());
+//							}
+
                         } catch (NullPointerException e) {
                             e.printStackTrace();
                         } catch (JsonSyntaxException e) {
