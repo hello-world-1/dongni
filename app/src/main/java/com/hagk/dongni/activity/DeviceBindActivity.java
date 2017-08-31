@@ -8,87 +8,114 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
+import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.utils.PrefUtils;
+import com.hagk.dongni.view.CustomImageView;
+import com.hdl.myhttputils.MyHttpUtils;
+import com.hdl.myhttputils.bean.StringCallBack;
 
 /*
  * 绑定设备的界面
  */
 public class DeviceBindActivity extends Activity {
-	EditText imeiNumber;
-	EditText phoneNumber;
-	Handler handler;
-	Button bind;
+    EditText imeiNumber;
+    EditText phoneNumber;
+    CustomImageView bind;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.device_bind_activity);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.device_bind_activity);
 
-		imeiNumber = (EditText) findViewById(R.id.et_imei_number);
-		phoneNumber = (EditText) findViewById(R.id.et_phone_number);
-		bind = (Button) findViewById(R.id.btn_bind);
-	}
+        imeiNumber = (EditText) findViewById(R.id.et_imei_number);
+        phoneNumber = (EditText) findViewById(R.id.et_phone_number);
+        bind = (CustomImageView) findViewById(R.id.bind_image);
+    }
 
-	// 点击绑定按钮触发的方法
-	public void bind(View view) {
-//		String imeiNumberStr = imeiNumber.getText().toString().trim();
-//		String phoneNumberStr = phoneNumber.getText().toString().trim();
+    // 点击绑定按钮触发的方法
+    public void bind(View view) {
+        String imeiNumberStr = imeiNumber.getText().toString().trim();
+        String phoneNumberStr = phoneNumber.getText().toString().trim();
 
-//		if (TextUtils.isEmpty(imeiNumberStr)
-//				|| TextUtils.isEmpty(phoneNumberStr)) {
-//			Toast.makeText(DeviceBindActivity.this, ConstantValue.TXT_EMPTY,
-//					Toast.LENGTH_SHORT).show();
-//			return;
-//		}
-//
-//		if (!OthersUtils.isMobileNO(phoneNumberStr)) {
-//			Toast.makeText(DeviceBindActivity.this,
-//					ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
-//					.show();
-//			return;
-//		}
-		Intent intent = new Intent(DeviceBindActivity.this, BaiduLocation.class);
-		DeviceBindActivity.this.startActivity(intent);
-		
-	}
+        if (TextUtils.isEmpty(imeiNumberStr)
+                || TextUtils.isEmpty(phoneNumberStr)) {
+            Toast.makeText(DeviceBindActivity.this, ConstantValue.TXT_EMPTY,
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-	// 访问服务器,验证用户名和密码
-	public void checkLogin(final String str_username, final String str_password) {
+        if (!OthersUtils.isMobileNO(phoneNumberStr)) {
+            Toast.makeText(DeviceBindActivity.this,
+                    ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
 
-		new Thread() {
-			@Override
-			public void run() {
-				Map<String, Object> requestParamsMap = new HashMap<String, Object>();
-				requestParamsMap.put("username", str_username);
-				requestParamsMap.put("password", str_password);
-				requestParamsMap.put("type", "login");
+        bindDevice(imeiNumberStr, phoneNumberStr);
 
-				Map<String, Object> retValue = HttpPostUtils.doPost(
-						ConstantValue.BASE_URL
-								+ "/androidlocation/LoginServlet",
-						requestParamsMap);
+    }
 
-				int code = (int) retValue.get("code");
+    // 绑定设备
+    public void bindDevice(final String imeiNumberStr, final String phoneNumberStr) {
 
-				if (code == 200) {
-					String value = (String) retValue.get("value");
-					Message msg = new Message();
-					msg.obj = value;
-					handler.sendMessage(msg);
-				} else {
-					Message msg = new Message();
-					handler.sendMessage(msg);
-				}
-			}
-		}.start();
-	}
+        String uerID = PrefUtils.getUserID(DeviceBindActivity.this.getBaseContext());
+        String token = PrefUtils.getToken(DeviceBindActivity.this.getBaseContext());
+        String username = PrefUtils.getUsername(DeviceBindActivity.this.getBaseContext());
+
+        Map<String, Object> params = new HashMap<>();//构造请求的参数
+        params.put("userID", uerID);
+        params.put("token", token);
+        params.put("IMEI", imeiNumberStr);
+        params.put("watchTelephone", phoneNumberStr);
+        params.put("controlTelephone", username);
+
+        MyHttpUtils.build()//构建myhttputils
+                .url(ConstantValue.BASE_URL + "/api/user/watch/bind")//请求的url
+                .addParams(params)
+                .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+                    @Override
+                    public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
+                        JsonParser parse = new JsonParser();
+                        try {
+                            JsonObject json = (JsonObject) parse.parse(result);
+                            String status = json.get("status").getAsString();
+                            if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+                                // 绑定成功,替换成对勾图片bindsuccess
+                                bind.setImageResource(R.mipmap.bindsuccess);
+                            } else if (ConstantValue.ERROR_STATUS.equals(status)) {
+                                //error
+                                int errcode = json.get("errcode").getAsInt();
+                                if (3 == errcode || 4 == errcode || 5 == errcode) { //数据库出错
+                                    Toast.makeText(DeviceBindActivity.this, "服务器内部错误", Toast.LENGTH_SHORT).show();
+                                } else if (7 == errcode) { //给手表发送命令失败
+                                    Toast.makeText(DeviceBindActivity.this, "与手表通信失败", Toast.LENGTH_SHORT).show();
+                                } else if (2 == errcode) {
+                                    Toast.makeText(DeviceBindActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (NullPointerException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
+						Toast.makeText(DeviceBindActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
 }

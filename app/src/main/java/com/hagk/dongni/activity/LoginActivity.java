@@ -231,13 +231,13 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 								String userID = user.get("userID").getAsString();
 								String token = user.get("token").getAsString();
 								//保存用户的ID
-								PrefUtils.setUserID(LoginActivity.this.getBaseContext(), "userID", userID);
+								PrefUtils.setUserID(LoginActivity.this.getBaseContext(), userID);
 								//保存用户的token
-								PrefUtils.setToken(LoginActivity.this.getBaseContext(), "token", token);
+								PrefUtils.setToken(LoginActivity.this.getBaseContext(), token);
 								//保存用户的用户名
-								PrefUtils.setUsername(LoginActivity.this.getBaseContext(), "username", str_username);
+								PrefUtils.setUsername(LoginActivity.this.getBaseContext(), str_username);
 								//保存用户的密码
-								PrefUtils.setPassword(LoginActivity.this.getBaseContext(), "password", str_password);
+								PrefUtils.setPassword(LoginActivity.this.getBaseContext(), str_password);
 
 								//TODO 跳转到其他的activity
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {

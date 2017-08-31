@@ -20,8 +20,7 @@ public class IndexPager extends BasePager {
 		setSlidingMenuEnable(true);// 关闭侧边栏
 		flContent.removeAllViews();// 清除先前的绘图
 		addMenuPager();// 添加侧栏内容
-		// 定义listview
-		View v = View.inflate(mActivity, R.layout.index_pager, null);// 找到listview所在的布局
+		View v = View.inflate(mActivity, R.layout.index_pager, null);// 找到首页所在的布局
 		flContent.addView(v);// 给framelayout添加视图
 	}
 
@@ -31,10 +30,11 @@ public class IndexPager extends BasePager {
 	public void addMenuPager() {
 		pagerList = new ArrayList<>();
 		pagerList.add(new MessagePager(mActivity));
-//		pagerList.add(new LocationRequestPager(mActivity));
-//		pagerList.add(new LocationHistoryPager(mActivity));
-//		pagerList.add(new LeftContactPager(mActivity));
-//		pagerList.add(new PersonInfoPager(mActivity));
+		pagerList.add(new AlertPager(mActivity));
+		pagerList.add(new PHQ9Pager(mActivity));
+		pagerList.add(new CoursePager(mActivity));
+		pagerList.add(new ContactPager(mActivity));
+		pagerList.add(new SettingPager(mActivity));
 	}
 
 	public void setCurrentMenuPager(int position) {

@@ -13,6 +13,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.hagk.dongni.R;
 
@@ -20,7 +21,7 @@ import com.hagk.dongni.R;
 /**
  * 自定义View，实现圆角，圆形等效果
  */
-public class CustomImageView extends View {
+public class CustomImageView extends ImageView {
 
     /**
      * TYPE_CIRCLE / TYPE_ROUND

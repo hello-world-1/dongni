@@ -10,7 +10,7 @@
     <string name="input_password">输入密码</string>
     <string name="re_input_password">再次输入密码</string>
 	<string name="register_button">注册</string>
-	<string name="imei_number">IMEI号</string>
-	<string name="device_phone_number">设备手机号</string>
+	<string name="imei_number">输入IMEI号</string>
+	<string name="device_phone_number">输入设备手机号</string>
 	<string name="device_bind">绑定</string>
 </resources>
