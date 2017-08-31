@@ -9,9 +9,9 @@ import android.widget.Button;
 import com.hagk.dongni.R;
 import com.hagk.dongni.activity.RegistActivity;
 
-public class FriendRequestPager extends BaseMenuDetailPager {
+public class AlertPager extends BaseMenuDetailPager {
 
-	public FriendRequestPager(Activity activity) {
+	public AlertPager(Activity activity) {
 		super(activity);
 	}
 

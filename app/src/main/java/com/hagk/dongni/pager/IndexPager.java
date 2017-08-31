@@ -30,7 +30,7 @@ public class IndexPager extends BasePager {
 	 */
 	public void addMenuPager() {
 		pagerList = new ArrayList<>();
-		pagerList.add(new FriendRequestPager(mActivity));
+		pagerList.add(new MessagePager(mActivity));
 //		pagerList.add(new LocationRequestPager(mActivity));
 //		pagerList.add(new LocationHistoryPager(mActivity));
 //		pagerList.add(new LeftContactPager(mActivity));

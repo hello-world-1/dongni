@@ -24,45 +24,40 @@ import com.hagk.dongni.http.UserService;
 import com.hagk.dongni.lib.SlidingMenu;
 import com.hagk.dongni.pager.IndexPager;
 import com.hagk.dongni.utils.PrefUtils;
+import com.hagk.dongni.view.CustomImageView;
 
 /**
  * 侧边栏
  */
 public class LeftMenuFragment extends BaseFragment implements
         View.OnClickListener {
-    private RelativeLayout friendRequest, locationRequest, locationHistory,
-            other;// 中间的相对布局选项对象
-    private LinearLayout personInfo;
+    private RelativeLayout message, alert, phq9,
+            course,contact,setting;// 中间的相对布局选项对象
+    private CustomImageView picture;
     View view;
-
-    private UserObserver observer;
-    private UserService service;
-    private UserBean userBean;
-
-    ImageView icon;
-    TextView nickname;
-    TextView status;
-    TextView describe;
 
     @Override
     public View initViews() {
         view = View.inflate(mActivity, R.layout.fragment_left, null);
-        friendRequest = (RelativeLayout) view
-                .findViewById(R.id.rl_friend_request);
-        locationRequest = (RelativeLayout) view
-                .findViewById(R.id.rl_location_request);
-        locationHistory = (RelativeLayout) view
-                .findViewById(R.id.rl_location_history);
-        other = (RelativeLayout) view.findViewById(R.id.rl_contact);
-//        personInfo = (LinearLayout) view.findViewById(R.id.ll_person_info);
-        // 设置监听事件
-        friendRequest.setOnClickListener(this);
-        locationRequest.setOnClickListener(this);
-        locationHistory.setOnClickListener(this);
-        other.setOnClickListener(this);
-//        personInfo.setOnClickListener(this);
+        message = (RelativeLayout) view.findViewById(R.id.rl_left_message);
+        alert = (RelativeLayout) view.findViewById(R.id.rl_left_alert);
+        phq9 = (RelativeLayout) view.findViewById(R.id.rl_left_phq9);
+        course = (RelativeLayout) view.findViewById(R.id.rl_left_course);
+        contact = (RelativeLayout) view.findViewById(R.id.rl_left_contact);
+        setting = (RelativeLayout) view.findViewById(R.id.rl_left_setting);
 
-//        icon = (ImageView) view.findViewById(R.id.icon);
+        picture = (CustomImageView) view.findViewById(R.id.picture);
+
+        // 设置监听事件
+        message.setOnClickListener(this);
+        alert.setOnClickListener(this);
+        phq9.setOnClickListener(this);
+        course.setOnClickListener(this);
+        contact.setOnClickListener(this);
+        setting.setOnClickListener(this);
+
+        picture.setOnClickListener(this);
+
         return view;
     }
 
@@ -75,7 +70,7 @@ public class LeftMenuFragment extends BaseFragment implements
 //		getJsonResult();// 请求网络数据
     }
 
-    private void getJsonResult() {
+    /*private void getJsonResult() {
         String username = PrefUtils.getUsername(mActivity, "username");
         Observable<UserInfo> observable = observer.getResult(username);
         observable.subscribeOn(Schedulers.newThread())
@@ -107,30 +102,29 @@ public class LeftMenuFragment extends BaseFragment implements
                     }
                 });
     }
-
-    /**
-     * dp转px
-     */
-    public int dip2px(int dip) {
-        float scale = mActivity.getResources().getDisplayMetrics().density;
-        return (int) (dip * scale + 0.5f);
-    }
+*/
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rl_friend_request:
+            case R.id.rl_left_message:
                 setMenuPager(0);
                 break;
-            case R.id.rl_location_request:
+            case R.id.rl_left_alert:
                 break;
-            case R.id.rl_location_history:
+            case R.id.rl_left_phq9:
                 break;
-//		case R.id.rl_other:
-//			break;
-//            case R.id.icon:
-//                setMenuPager(0);
-//                break;
+		case R.id.rl_left_course:
+			break;
+            case R.id.rl_left_contact:
+                setMenuPager(0);
+                break;
+            case R.id.rl_left_setting:
+                setMenuPager(0);
+                break;
+            case R.id.picture:
+                setMenuPager(0);
+                break;
         }
     }
 
