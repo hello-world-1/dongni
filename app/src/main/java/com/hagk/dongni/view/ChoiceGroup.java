@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.hagk.dongni.bean.QuestionItem;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.Map;
 
 public class ChoiceGroup extends LinearLayout {
 
-    private int column = 4;//列数
+    private int column = 0;//列数
 
     private int currentIndex = 0;//当前按钮下标
 
@@ -73,14 +75,23 @@ public class ChoiceGroup extends LinearLayout {
         this.values = values;
     }
 
-    public interface OnValueChangedListner{
-        void OnValueChanged(String value);
+    public void setValues(QuestionItem item){
+        List<String> temp = new ArrayList<>();
+        temp.add(item.getAnswer1());
+        temp.add(item.getAnswer2());
+        temp.add(item.getAnswer3());
+        temp.add(item.getAnswer4());
+        setValues(temp);
+    }
+
+    public interface OnAnswerClickListner{
+        void OnValueChanged(String value,int index);
     }
 
     //实现接口，方便将当前按钮的值回调
-    QuestionRadio.OnValueChangedListner onValueChangedListner;
+    OnAnswerClickListner onValueChangedListner;
 
-    public void setOnValueChangedListner(QuestionRadio.OnValueChangedListner onValueChangedListner){
+    public void setOnValueChangedListner(OnAnswerClickListner onValueChangedListner){
         this.onValueChangedListner = onValueChangedListner;
     }
 
@@ -101,12 +112,13 @@ public class ChoiceGroup extends LinearLayout {
                 button.setLayoutParams(layoutParams);
                 button.setText(values.get(column * i + j));
                 currentIndex = column * i + j;
+                final int index = j;
                 button.setOnValueChangedListner(new QuestionRadio.OnValueChangedListner() {
                     @Override
                     public void OnValueChanged(String value) {
                         setCurrentValue(value);
                         //点击一个条目时通知PHQ9Pager
-                        onValueChangedListner.OnValueChanged(value);
+                        onValueChangedListner.OnValueChanged(value,index);
                         clearSelected(currentIndex);
                     }
 

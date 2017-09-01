@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/friend_lt"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/phq9_listview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="460dp" >
     </ListView>
 
     <!--提交按钮-->
     <Button
-        android:layout_below="@id/phq9_listview"
         android:id="@+id/btn_commit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginLeft="18dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
         android:background="#0BD38A"
         android:onClick="answerCommit"
         android:text="提交"
         android:textColor="#DFF9F0"
         android:textSize="16sp" />
-</RelativeLayout>
+</LinearLayout>

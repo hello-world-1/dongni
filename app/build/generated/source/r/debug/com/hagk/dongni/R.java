@@ -229,28 +229,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int myradio_inactive=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f080033;
+        public static final int action_settings=0x7f080042;
         public static final int back_image=0x7f08000b;
         public static final int bind_image=0x7f08000d;
-        public static final int bmapView=0x7f080021;
-        public static final int btn_commit=0x7f080029;
-        public static final int btn_getcode=0x7f08002e;
-        public static final int btn_login=0x7f080025;
-        public static final int btn_regist=0x7f080031;
-        public static final int button1=0x7f080022;
+        public static final int bmapView=0x7f08002e;
+        public static final int btn_commit=0x7f080036;
+        public static final int btn_getcode=0x7f08003b;
+        public static final int btn_login=0x7f080032;
+        public static final int btn_regist=0x7f08003e;
+        public static final int button1=0x7f08002f;
+        public static final int change_info=0x7f08002c;
+        public static final int child_sex_choiceGroup=0x7f080028;
         public static final int circle=0x7f080001;
         public static final int et_imei_number=0x7f08000e;
-        public static final int et_login_password=0x7f080024;
-        public static final int et_login_username=0x7f080023;
-        public static final int et_none=0x7f080026;
+        public static final int et_info_age=0x7f080021;
+        public static final int et_info_birth=0x7f080025;
+        public static final int et_info_character=0x7f080026;
+        public static final int et_info_child_age=0x7f080027;
+        public static final int et_info_child_birth=0x7f08002a;
+        public static final int et_info_child_character=0x7f08002b;
+        public static final int et_info_child_grade=0x7f080029;
+        public static final int et_info_nickname=0x7f080020;
+        public static final int et_info_telephone=0x7f080024;
+        public static final int et_login_password=0x7f080031;
+        public static final int et_login_username=0x7f080030;
+        public static final int et_none=0x7f080033;
         public static final int et_phone_number=0x7f08000f;
-        public static final int et_regist=0x7f080027;
-        public static final int et_regist_authcode=0x7f08002d;
-        public static final int et_regist_password=0x7f08002f;
-        public static final int et_regist_re_password=0x7f080030;
-        public static final int et_regist_username=0x7f08002c;
+        public static final int et_regist=0x7f080034;
+        public static final int et_regist_authcode=0x7f08003a;
+        public static final int et_regist_password=0x7f08003c;
+        public static final int et_regist_re_password=0x7f08003d;
+        public static final int et_regist_username=0x7f080039;
         public static final int fl_cc=0x7f080009;
-        public static final int fl_left_menu=0x7f080020;
+        public static final int fl_left_menu=0x7f08002d;
         public static final int friend_lt=0x7f08001e;
         public static final int fullscreen=0x7f080005;
         public static final int left=0x7f080003;
@@ -263,11 +274,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ly_content=0x7f080008;
         public static final int margin=0x7f080006;
         public static final int none=0x7f080007;
-        public static final int phq9_listview=0x7f080028;
+        public static final int phq9_listview=0x7f080035;
         public static final int picture=0x7f080011;
-        public static final int question_choiceGroup=0x7f08002b;
-        public static final int question_textview=0x7f08002a;
+        public static final int question_choiceGroup=0x7f080038;
+        public static final int question_textview=0x7f080037;
         public static final int register_tv=0x7f08001f;
+        public static final int relation_choiceGroup=0x7f080023;
         public static final int right=0x7f080004;
         public static final int rl_left_alert=0x7f080014;
         public static final int rl_left_contact=0x7f08001a;
@@ -277,9 +289,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int rl_left_setting=0x7f08001c;
         public static final int round=0x7f080002;
         public static final int selected_view=0x7f080000;
-        public static final int slidingmenumain=0x7f080032;
+        public static final int sex_choiceGroup=0x7f080022;
+        public static final int slidingmenumain=0x7f080041;
         public static final int text_title=0x7f08000a;
         public static final int topbar=0x7f08000c;
+        public static final int tv_exit=0x7f08003f;
+        public static final int tv_repassword=0x7f080040;
         public static final int vp_content=0x7f080010;
     }
     public static final class layout {
@@ -291,13 +306,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int fragment_left=0x7f040005;
         public static final int friend_listview=0x7f040006;
         public static final int index_pager=0x7f040007;
-        public static final int left_menu=0x7f040008;
-        public static final int location_activity=0x7f040009;
-        public static final int login_activity=0x7f04000a;
-        public static final int phq9_listview=0x7f04000b;
-        public static final int phq9_listview_item=0x7f04000c;
-        public static final int regist_activity=0x7f04000d;
-        public static final int slidingmenumain=0x7f04000e;
+        public static final int info_pager=0x7f040008;
+        public static final int left_menu=0x7f040009;
+        public static final int location_activity=0x7f04000a;
+        public static final int login_activity=0x7f04000b;
+        public static final int phq9_listview=0x7f04000c;
+        public static final int phq9_listview_item=0x7f04000d;
+        public static final int regist_activity=0x7f04000e;
+        public static final int setting_pager=0x7f04000f;
+        public static final int slidingmenumain=0x7f040010;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -334,8 +351,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f050000;
+        /**  All customizations that are NOT specific to a particular API-level can go here. 
+         */
         public static final int AppTheme=0x7f050001;
         public static final int Dialog=0x7f050002;
         public static final int main_bar_text_style=0x7f050003;

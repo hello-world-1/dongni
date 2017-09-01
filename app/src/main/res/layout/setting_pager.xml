@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!--最上方的标题-->
+    <com.hagk.dongni.view.TopBarView
+        android:id="@+id/topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:leftBtn="@drawable/back_page"
+        custom:titleColor="@android:color/white"
+        custom:titleSize="@dimen/title_bar_title_size"
+        custom:titleText="设置" />
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="right"
+        android:onClick="regist"
+        android:text="退出登录"
+        android:textColor="#8080FF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_repassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="right"
+        android:onClick="regist"
+        android:text="修改密码"
+        android:textColor="#8080FF"
+        android:textSize="16sp" />
+
+</LinearLayout>

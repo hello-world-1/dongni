@@ -36,6 +36,10 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\index_pager.xml"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\info_pager.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\info_pager.xml"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\phq9_listview.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\phq9_listview.xml"
     },
@@ -46,6 +50,10 @@
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_content.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_content.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_pager.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\setting_pager.xml"
     },
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login_activity.xml",

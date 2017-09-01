@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:customimage="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <!--最上方的标题-->
+    <com.hagk.dongni.view.TopBarView
+        android:id="@+id/topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:leftBtn="@drawable/back_page"
+        custom:titleColor="@android:color/white"
+        custom:titleSize="@dimen/title_bar_title_size"
+        custom:titleText="个人信息" />
+
+    <!--显示头像-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/login_activity_image_margin_top"
+        android:layout_marginTop="@dimen/login_activity_image_margin_top"
+        android:orientation="horizontal">
+
+        <com.hagk.dongni.view.CustomImageView
+            android:id="@+id/picture"
+            android:layout_width="@dimen/login_activity_image_width"
+            android:layout_height="@dimen/login_activity_image_height"
+            customimage:src="@mipmap/register_icon"
+            customimage:type="circle" />
+    </LinearLayout>
+
+    <!-- 中间的分割线 -->
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/left_devider" />
+
+    <!--昵称-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="昵称:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_info_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--年龄-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="年龄:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_info_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--性别-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="性别:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.hagk.dongni.view.ChoiceGroup
+            android:id="@+id/sex_choiceGroup"
+            android:background="@color/white_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.hagk.dongni.view.ChoiceGroup>
+    </LinearLayout>
+
+    <!--我是-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="我是:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.hagk.dongni.view.ChoiceGroup
+            android:id="@+id/relation_choiceGroup"
+            android:background="@color/white_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.hagk.dongni.view.ChoiceGroup>
+    </LinearLayout>
+
+    <!--手机-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="手机:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/et_info_telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--生日-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--性格特点-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 中间的分割线 -->
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/left_devider" />
+
+    <!--孩子的信息-->
+    <!--年龄-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_child_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--性别-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.hagk.dongni.view.ChoiceGroup
+            android:id="@+id/child_sex_choiceGroup"
+            android:background="@color/white_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.hagk.dongni.view.ChoiceGroup>
+    </LinearLayout>
+
+    <!--年级-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_child_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--生日-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_child_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!--性格特点-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_info_child_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/change_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改"
+        />
+
+</LinearLayout>
