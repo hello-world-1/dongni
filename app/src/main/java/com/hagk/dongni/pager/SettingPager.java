@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.ChangePasswordActivity;
 import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.RegistActivity;
 import com.hagk.dongni.utils.ConstantValue;
@@ -39,7 +40,8 @@ public class SettingPager extends BaseMenuDetailPager implements TopBarView.onTi
 				exit();
 				break;
 			case R.id.tv_repassword:
-				Intent intent = new Intent(mActivity, RegistActivity.class);
+				Intent intent = new Intent(mActivity, ChangePasswordActivity.class);
+                intent.putExtra("type","repassword");
 				mActivity.startActivity(intent);
 				break;
 			default:

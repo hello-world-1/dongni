@@ -1,12 +1,14 @@
 package com.hagk.dongni.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -15,6 +17,7 @@ import com.google.gson.JsonSyntaxException;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.utils.PrefUtils;
 import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
@@ -23,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ChangePasswordActivity extends Activity implements TopBarView.onTitleBarClickListener{
-    EditText username;
+    TextView username;
     EditText password;
     EditText repassword;
     EditText authode;
@@ -41,26 +44,26 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.regist_activity);
-
+        setContentView(R.layout.changepassword_activity);
         title = (TopBarView) findViewById(R.id.topbar);
         title.setClickListener(this);
 
-        username = (EditText) findViewById(R.id.et_regist_username);
+        Intent intent = getIntent();
+        String type = intent.getStringExtra("type");
+        if(type != null){
+            if("repassword".equals(type)){
+                title.setTitle("修改密码");
+            }else if("forgetpassword".equals(type)){
+                title.setTitle("忘记密码");
+            }
+        }
+
+        username = (TextView) findViewById(R.id.et_regist_username);
+        username.setText(PrefUtils.getUsername(ChangePasswordActivity.this));
         authode = (EditText) findViewById(R.id.et_regist_authcode);
         password = (EditText) findViewById(R.id.et_regist_password);
         repassword = (EditText) findViewById(R.id.et_regist_re_password);
         regist = (Button) findViewById(R.id.btn_regist);
-
-//		Intent intent = getIntent();
-//		type = intent.getStringExtra("type");
-//
-//		// 根据从注册界面点击的按钮不同,注册按钮显示的值不同
-//		if ("forget".equals(type)) {
-//			regist.setText("重置密码");
-//		} else if ("regist".equals(regist)) {
-//			regist.setText("注册");
-//		}
     }
 
     public void getCode(View view) {
@@ -102,21 +105,6 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                                 Toast.makeText(ChangePasswordActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-//							http://www.cnblogs.com/kaituorensheng/p/6616126.html
-//							System.out.println("resultcode:" + json.get("resultcodeu").getAsInt());
-//							System.out.println("reason:" + json.get("reason").getAsString());
-//							JsonObject result = json.get("result").getAsJsonObject();
-//							JsonObject today = result.get("today").getAsJsonObject();
-//							System.out.println("weak:" + today.get("week").getAsString());
-//							System.out.println("weather:" + today.get("weather").getAsString());
-//							JsonArray futureArray = result.get("future").getAsJsonArray();
-//							for (int i = 0; i < futureArray.size(); ++i) {
-//								JsonObject subObj = futureArray.get(i).getAsJsonObject();
-//								System.out.println("------");
-//								System.out.println("week:" + subObj.get("week").getAsString());
-//								System.out.println("weather:" + subObj.get("weather").getAsString());
-//							}
-
                         } catch (NullPointerException e) {
                             e.printStackTrace();
                         } catch (JsonSyntaxException e) {
@@ -130,18 +118,6 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                         throwable.printStackTrace();
                     }
                 });
-                /*.setJavaBean(LoginBean.class)
-                        .onExecuteByPost(new CommCallback<LoginBean>() {
-                            @Override
-                            public void onSucceed(LoginBean loginBean) {
-                                ToastUtils.showToast(LoginActivity.this,loginBean.getMsg());
-                            }
-
-                            @Override
-                            public void onFailed(Throwable throwable) {
-                                ToastUtils.showToast(LoginActivity.this, FailedMsgUtils.getErrMsgStr(throwable));
-                            }
-                });*/
     }
 
     // 注册或者重置密码点击事件
@@ -186,11 +162,14 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
     public void checkLogin(final String str_username, final String str_password) {
 
         Map<String, Object> params = new HashMap<>();//构造请求的参数
-        params.put("telephone", str_username);
-        params.put("password", str_password);
+        params.put("password", PrefUtils.getPassword(ChangePasswordActivity.this));
+        params.put("newpassword", str_password);
+        params.put("re_newpassword", str_password);
+        params.put("userID", PrefUtils.getUserID(ChangePasswordActivity.this));
+        params.put("token", PrefUtils.getToken(ChangePasswordActivity.this));
 
         MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL + "/api/user/signup")//请求的url
+                .url(ConstantValue.BASE_URL + "/api/user/resetPassword")//请求的url
                 .addParams(params)
                 .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
                     @Override

@@ -1,5 +1,14 @@
 package com.hagk.dongni.utils;
 
+import android.widget.Toast;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+import com.hagk.dongni.activity.RegistActivity;
+import com.hdl.myhttputils.MyHttpUtils;
+import com.hdl.myhttputils.bean.StringCallBack;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -143,5 +152,22 @@ public class HttpPostUtils {
 		}
 		return html;
 	}
-	
+
+	public void myUtilsHttp(Map<String, Object> params, String url, final ResultHandler handler){
+		MyHttpUtils.build()//构建myhttputils
+				.url(url)//请求的url
+				.addParams(params)
+				.onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
+					@Override
+					public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
+						handler.processResult(result);
+					}
+
+					@Override
+					public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
+						handler.processResultError(throwable);
+					}
+				});
+	}
+
 }
