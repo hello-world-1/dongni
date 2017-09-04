@@ -60,12 +60,12 @@ public class QuestionAdapter extends BaseAdapter implements ListAdapter {
         final TextView question = (TextView) convertView.findViewById(R.id.question_textview);
         question.setText(questionItem.getQuestion());
         answer.setValues(questionItem);
+        answer.setColumn(4);
+        answer.setView(context);//设置视图
         if(answers.containsKey(questionItem.getQuestion())){
             Answer temp = answers.get(questionItem.getQuestion());
             answer.setInitChecked(temp.getAnswerIndex());
         }
-        answer.setColumn(4);
-        answer.setView(context);//设置视图
         answer.setOnValueChangedListner(new ChoiceGroup.OnAnswerClickListner() {
             @Override
             public void OnValueChanged(String value,int index) {

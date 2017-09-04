@@ -153,7 +153,7 @@ public class HttpPostUtils {
 		return html;
 	}
 
-	public void myUtilsHttp(Map<String, Object> params, String url, final ResultHandler handler){
+	public static void myUtilsHttp(Map<String, Object> params, String url, final ResultHandler handler){
 		MyHttpUtils.build()//构建myhttputils
 				.url(url)//请求的url
 				.addParams(params)
@@ -168,6 +168,18 @@ public class HttpPostUtils {
 						handler.processResultError(throwable);
 					}
 				});
+				/*.setJavaBean(LoginBean.class)
+					.onExecuteByPost(new CommCallback<LoginBean>() {
+						@Override
+						public void onSucceed(LoginBean loginBean) {
+							ToastUtils.showToast(LoginActivity.this,loginBean.getMsg());
+						}
+
+						@Override
+						public void onFailed(Throwable throwable) {
+							ToastUtils.showToast(LoginActivity.this, FailedMsgUtils.getErrMsgStr(throwable));
+						}
+                });*/
 	}
 
 }

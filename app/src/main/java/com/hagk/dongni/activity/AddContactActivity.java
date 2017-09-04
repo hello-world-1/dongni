@@ -1,17 +1,10 @@
 package com.hagk.dongni.activity;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,7 +12,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
-import com.hagk.dongni.utils.HttpPostUtils;
 import com.hagk.dongni.utils.OthersUtils;
 import com.hagk.dongni.utils.PrefUtils;
 import com.hagk.dongni.view.CustomImageView;
@@ -27,10 +19,13 @@ import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * 绑定设备的界面
  */
-public class DeviceBindActivity extends Activity implements TopBarView.onTitleBarClickListener{
+public class AddContactActivity extends Activity implements TopBarView.onTitleBarClickListener{
     EditText imeiNumber;
     EditText phoneNumber;
     CustomImageView bind;
@@ -38,7 +33,7 @@ public class DeviceBindActivity extends Activity implements TopBarView.onTitleBa
 
     @Override
     public void onBackClick() {
-        DeviceBindActivity.this.finish();
+        AddContactActivity.this.finish();
     }
 
     @Override
@@ -63,13 +58,13 @@ public class DeviceBindActivity extends Activity implements TopBarView.onTitleBa
 
         if (TextUtils.isEmpty(imeiNumberStr)
                 || TextUtils.isEmpty(phoneNumberStr)) {
-            Toast.makeText(DeviceBindActivity.this, ConstantValue.TXT_EMPTY,
+            Toast.makeText(AddContactActivity.this, ConstantValue.TXT_EMPTY,
                     Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!OthersUtils.isMobileNO(phoneNumberStr)) {
-            Toast.makeText(DeviceBindActivity.this,
+            Toast.makeText(AddContactActivity.this,
                     ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
                     .show();
             return;
@@ -82,9 +77,9 @@ public class DeviceBindActivity extends Activity implements TopBarView.onTitleBa
     // 绑定设备
     public void bindDevice(final String imeiNumberStr, final String phoneNumberStr) {
 
-        String uerID = PrefUtils.getUserID(DeviceBindActivity.this.getBaseContext());
-        String token = PrefUtils.getToken(DeviceBindActivity.this.getBaseContext());
-        String username = PrefUtils.getUsername(DeviceBindActivity.this.getBaseContext());
+        String uerID = PrefUtils.getUserID(AddContactActivity.this.getBaseContext());
+        String token = PrefUtils.getToken(AddContactActivity.this.getBaseContext());
+        String username = PrefUtils.getUsername(AddContactActivity.this.getBaseContext());
 
         Map<String, Object> params = new HashMap<>();//构造请求的参数
         params.put("userID", uerID);
@@ -110,11 +105,11 @@ public class DeviceBindActivity extends Activity implements TopBarView.onTitleBa
                                 //error
                                 int errcode = json.get("errcode").getAsInt();
                                 if (3 == errcode || 4 == errcode || 5 == errcode) { //数据库出错
-                                    Toast.makeText(DeviceBindActivity.this, "服务器内部错误", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddContactActivity.this, "服务器内部错误", Toast.LENGTH_SHORT).show();
                                 } else if (7 == errcode) { //给手表发送命令失败
-                                    Toast.makeText(DeviceBindActivity.this, "与手表通信失败", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddContactActivity.this, "与手表通信失败", Toast.LENGTH_SHORT).show();
                                 } else if (2 == errcode) {
-                                    Toast.makeText(DeviceBindActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AddContactActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } catch (NullPointerException e) {
@@ -124,7 +119,7 @@ public class DeviceBindActivity extends Activity implements TopBarView.onTitleBa
 
                     @Override
                     public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
-						Toast.makeText(DeviceBindActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+						Toast.makeText(AddContactActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

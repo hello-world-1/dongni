@@ -3,9 +3,18 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:customimage="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
     android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <!--最上方的标题-->
     <com.hagk.dongni.view.TopBarView
@@ -14,7 +23,7 @@
         android:layout_height="wrap_content"
         custom:leftBtn="@drawable/back_page"
         custom:titleColor="@android:color/white"
-        custom:titleSize="@dimen/title_bar_title_size"
+        custom:titleSize="15sp"
         custom:titleText="个人信息" />
 
     <!--显示头像-->
@@ -28,8 +37,8 @@
 
         <com.hagk.dongni.view.CustomImageView
             android:id="@+id/picture"
-            android:layout_width="@dimen/login_activity_image_width"
-            android:layout_height="@dimen/login_activity_image_height"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             customimage:src="@mipmap/register_icon"
             customimage:type="circle" />
     </LinearLayout>
@@ -69,7 +78,8 @@
         <EditText
             android:id="@+id/et_info_age"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
     </LinearLayout>
 
     <!--性别-->
@@ -116,12 +126,14 @@
         <TextView
             android:text="手机:"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
         <EditText
             android:id="@+id/et_info_telephone"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="phone"/>
     </LinearLayout>
 
     <!--生日-->
@@ -129,16 +141,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:text="生日:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
         <EditText
             android:id="@+id/et_info_birth"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="date"/>
     </LinearLayout>
 
     <!--性格特点-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:text="性格特点:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/et_info_character"
@@ -158,16 +182,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:text="孩子的年龄:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
         <EditText
             android:id="@+id/et_info_child_age"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
     </LinearLayout>
 
     <!--性别-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:text="孩子的性别:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <com.hagk.dongni.view.ChoiceGroup
             android:id="@+id/child_sex_choiceGroup"
@@ -182,16 +218,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:text="孩子的年级:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <EditText
             android:id="@+id/et_info_child_grade"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
     </LinearLayout>
 
     <!--生日-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:text="孩子的生日:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"/>
 
         <EditText
             android:id="@+id/et_info_child_birth"
@@ -203,6 +251,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:text="孩子的性格特点:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/et_info_child_character"
@@ -216,5 +269,7 @@
         android:layout_height="wrap_content"
         android:text="修改"
         />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

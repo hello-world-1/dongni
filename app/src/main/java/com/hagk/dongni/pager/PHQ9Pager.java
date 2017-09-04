@@ -18,6 +18,7 @@ import com.hagk.dongni.bean.AnswerJson;
 import com.hagk.dongni.bean.QuestionItem;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.PrefUtils;
+import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
 
@@ -35,17 +36,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PHQ9Pager extends BaseMenuDetailPager {
+public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitleBarClickListener{
 
     public PHQ9Pager(Activity activity) {
         super(activity);
     }
 
+    private TopBarView title;
     private ListView lv;
     private Button commit;
     private List<QuestionItem> questions;
     private String surveyID;
     private Map<String, Answer> answers;
+    private boolean isQuestionInit = false;
+
+    @Override
+    public void onBackClick() {
+    }
 
     @Override
     public View initViews() {
@@ -61,13 +68,16 @@ public class PHQ9Pager extends BaseMenuDetailPager {
 //            questions.add(item);
 //        }
 
-//获取问卷
+        //获取问卷
         getQuestion();
 
         // 获取网络请求接口
         View view = View.inflate(mActivity, R.layout.phq9_listview, null);// 找到listview所在的布局
         lv = (ListView) view.findViewById(R.id.phq9_listview);
         commit = (Button) view.findViewById(R.id.btn_commit);
+
+        title = (TopBarView) view.findViewById(R.id.topbar);
+        title.setClickListener(this);
 
         commit.setOnClickListener(new OnClickListener() {
 
@@ -179,6 +189,11 @@ public class PHQ9Pager extends BaseMenuDetailPager {
 
     // 提交按钮点击触发事件
     public void answerCommit() {
+        if(!isQuestionInit){//如果问卷初始化没有完成
+            Toast.makeText(mActivity, "问卷初始化出错", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (surveyID == null) {
             Toast.makeText(mActivity, "生成问卷出错", Toast.LENGTH_SHORT).show();
             return;
@@ -247,6 +262,7 @@ public class PHQ9Pager extends BaseMenuDetailPager {
                                         //向问题列表中插入问题
                                         questions.add(item);
                                     }
+                                    isQuestionInit = true;
                                 }
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error

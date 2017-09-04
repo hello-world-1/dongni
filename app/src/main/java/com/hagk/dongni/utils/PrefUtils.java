@@ -3,6 +3,8 @@ package com.hagk.dongni.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Set;
+
 /**
  * SharePreference封装
  */
@@ -93,5 +95,40 @@ public class PrefUtils {
 		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
 				Context.MODE_PRIVATE);
 		return sp.getString(key, null);
+	}
+
+	public static boolean getInfoSetting(Context ctx){
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		return sp.getBoolean("isSetting",false);
+	}
+
+	public static void setInfoSetting(Context ctx,boolean isSetting){
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		sp.edit().putBoolean("isSetting",isSetting).commit();
+	}
+
+	public static void setWatchContact(Context ctx,String contact){
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		Set<String> contacts = sp.getStringSet("contact",null); //获取到所有的联系人
+		String nickname = contact.split(" ")[0];
+		for(String item : contacts){
+			String temp = item.split(" ")[0];
+			if(nickname.equals(temp)){
+				//如果包含了这个联系人
+				contacts.remove(item);
+				contacts.add(contact);
+				break;
+			}
+		}
+		sp.edit().putStringSet("contact",contacts).commit();
+	}
+
+	public static Set<String> getWatchContact(Context ctx){
+		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
+				Context.MODE_PRIVATE);
+		return sp.getStringSet("contact",null);
 	}
 }

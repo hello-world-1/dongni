@@ -73,6 +73,8 @@ public class SettingPager extends BaseMenuDetailPager implements TopBarView.onTi
 								PrefUtils.setUserID(mActivity, userID);
 								//保存用户的token
 								PrefUtils.setToken(mActivity, token);
+
+								Toast.makeText(mActivity,"注销成功",Toast.LENGTH_SHORT).show();
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {
 								//error
 								int errcode = json.get("errcode").getAsInt();

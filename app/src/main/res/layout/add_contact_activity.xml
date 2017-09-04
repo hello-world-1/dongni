@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:customimage="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+
+    <!--最上方的标题-->
+    <com.hagk.dongni.view.TopBarView
+        android:id="@+id/topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:leftBtn="@drawable/back_page"
+        custom:titleColor="@android:color/white"
+        custom:titleSize="@dimen/title_bar_title_size"
+        custom:titleText="添加联系人" />
+
+    <!--联系人名称  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="@dimen/register_item_margin_top"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_imei_number"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:hint="联系人名称" />
+    </LinearLayout>
+
+    <!-- 手机号 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:hint="手机号"
+            android:inputType="phone" />
+    </LinearLayout>
+
+</LinearLayout>

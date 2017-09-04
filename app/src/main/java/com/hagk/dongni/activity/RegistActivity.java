@@ -20,6 +20,8 @@ import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.HttpPostUtils;
 import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.utils.PrefUtils;
+import com.hagk.dongni.utils.ResultHandler;
 import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
@@ -42,7 +44,8 @@ public class RegistActivity extends Activity implements TopBarView.onTitleBarCli
 
     @Override
     public void onBackClick() {
-        Toast.makeText(RegistActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
+        //关闭当前的activity
+        RegistActivity.this.finish();
     }
 
     @Override
@@ -59,16 +62,6 @@ public class RegistActivity extends Activity implements TopBarView.onTitleBarCli
         password = (EditText) findViewById(R.id.et_regist_password);
         repassword = (EditText) findViewById(R.id.et_regist_re_password);
         regist = (Button) findViewById(R.id.btn_regist);
-
-//		Intent intent = getIntent();
-//		type = intent.getStringExtra("type");
-//
-//		// 根据从注册界面点击的按钮不同,注册按钮显示的值不同
-//		if ("forget".equals(type)) {
-//			regist.setText("重置密码");
-//		} else if ("regist".equals(regist)) {
-//			regist.setText("注册");
-//		}
     }
 
     public void getCode(View view) {
@@ -91,25 +84,22 @@ public class RegistActivity extends Activity implements TopBarView.onTitleBarCli
 
         Map<String, Object> params = new HashMap<>();//构造请求的参数
         params.put("telephone", phoneNumber);
+        String url = ConstantValue.BASE_URL + "/api/user/sendCode";
 
-        MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL + "/api/user/sendCode")//请求的url
-                .addParams(params)
-                .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
-                    @Override
-                    public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
-
-                        JsonParser parse = new JsonParser();
-                        try {
-                            JsonObject json = (JsonObject) parse.parse(result);
-                            String status = json.get("status").getAsString();
-                            if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-                                successCode = json.get("code").getAsString();
-                                Toast.makeText(RegistActivity.this, "发送短信验证码成功", Toast.LENGTH_SHORT).show();
-                            } else if (ConstantValue.ERROR_STATUS.equals(status)) {
-                                Toast.makeText(RegistActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
+        HttpPostUtils.myUtilsHttp(params, url, new ResultHandler() {
+            @Override
+            public void processResult(String result) {
+                JsonParser parse = new JsonParser();
+                try {
+                    JsonObject json = (JsonObject) parse.parse(result);
+                    String status = json.get("status").getAsString();
+                    if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+                        successCode = json.get("code").getAsString();
+                        Toast.makeText(RegistActivity.this, "发送短信验证码成功", Toast.LENGTH_SHORT).show();
+                    } else if (ConstantValue.ERROR_STATUS.equals(status)) {
+                        Toast.makeText(RegistActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 //							http://www.cnblogs.com/kaituorensheng/p/6616126.html
 //							System.out.println("resultcode:" + json.get("resultcodeu").getAsInt());
 //							System.out.println("reason:" + json.get("reason").getAsString());
@@ -124,32 +114,19 @@ public class RegistActivity extends Activity implements TopBarView.onTitleBarCli
 //								System.out.println("week:" + subObj.get("week").getAsString());
 //								System.out.println("weather:" + subObj.get("weather").getAsString());
 //							}
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
 
-                        } catch (NullPointerException e) {
-                            e.printStackTrace();
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
-                        Toast.makeText(RegistActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
-                        throwable.printStackTrace();
-                    }
-                });
-                /*.setJavaBean(LoginBean.class)
-                        .onExecuteByPost(new CommCallback<LoginBean>() {
-                            @Override
-                            public void onSucceed(LoginBean loginBean) {
-                                ToastUtils.showToast(LoginActivity.this,loginBean.getMsg());
-                            }
-
-                            @Override
-                            public void onFailed(Throwable throwable) {
-                                ToastUtils.showToast(LoginActivity.this, FailedMsgUtils.getErrMsgStr(throwable));
-                            }
-                });*/
+            @Override
+            public void processResultError(Throwable throwable) {
+                Toast.makeText(RegistActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+                throwable.printStackTrace();
+            }
+        });
     }
 
     // 注册或者重置密码点击事件
@@ -196,42 +173,48 @@ public class RegistActivity extends Activity implements TopBarView.onTitleBarCli
         Map<String, Object> params = new HashMap<>();//构造请求的参数
         params.put("telephone", str_username);
         params.put("password", str_password);
+        String url = ConstantValue.BASE_URL + "/api/user/signup";
+        HttpPostUtils.myUtilsHttp(params, url, new ResultHandler() {
+            @Override
+            public void processResult(String result) {
+                JsonParser parse = new JsonParser();
+                try {
+                    JsonObject json = (JsonObject) parse.parse(result);
+                    String status = json.get("status").getAsString();
+                    if (ConstantValue.SUCCESS_STATUS.equals(status)) {
+                        // success
+                        // TODO 注册成功后的处理
+                        Toast.makeText(RegistActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
+                        //保存用户的用户名
+                        PrefUtils.setUsername(RegistActivity.this.getBaseContext(), str_username);
+                        //保存用户的密码
+                        PrefUtils.setPassword(RegistActivity.this.getBaseContext(), str_password);
+                        //跳转到登录的界面
+                        Intent intent = new Intent(RegistActivity.this, LoginActivity.class);
+                        RegistActivity.this.startActivity(intent);
+                        RegistActivity.this.finish();
 
-        MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL + "/api/user/signup")//请求的url
-                .addParams(params)
-                .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
-                    @Override
-                    public void onSucceed(String result) {//请求成功之后会调用这个方法----显示结果
-                        JsonParser parse = new JsonParser();
-                        try {
-                            JsonObject json = (JsonObject) parse.parse(result);
-                            String status = json.get("status").getAsString();
-                            if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-                                // success
-                                // TODO 注册成功后的处理
-                                Toast.makeText(RegistActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
-                            } else if (ConstantValue.ERROR_STATUS.equals(status)) {
-                                //error
-                                int errcode = json.get("errcode").getAsInt();
-                                if (3 == errcode) { //手机号已经注册
-                                    Toast.makeText(RegistActivity.this, "该手机号已注册请直接登录", Toast.LENGTH_SHORT).show();
-                                } else if (4 == errcode) {
-                                    Toast.makeText(RegistActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        } catch (NullPointerException e) {
-                            e.printStackTrace();
-                        } catch (JsonSyntaxException e) {
-                            e.printStackTrace();
+                    } else if (ConstantValue.ERROR_STATUS.equals(status)) {
+                        //error
+                        int errcode = json.get("errcode").getAsInt();
+                        if (3 == errcode) { //手机号已经注册
+                            Toast.makeText(RegistActivity.this, "该手机号已注册请直接登录", Toast.LENGTH_SHORT).show();
+                        } else if (4 == errcode) {
+                            Toast.makeText(RegistActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
                         }
                     }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
 
-                    @Override
-                    public void onFailed(Throwable throwable) {//请求失败的时候会调用这个方法
-                        Toast.makeText(RegistActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+            @Override
+            public void processResultError(Throwable throwable) {
+                Toast.makeText(RegistActivity.this, throwable.getStackTrace().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

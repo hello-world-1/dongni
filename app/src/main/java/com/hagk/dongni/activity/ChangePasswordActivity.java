@@ -33,11 +33,10 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
     TopBarView title;
     private String successCode;
     Button regist;
-    String type;
 
     @Override
     public void onBackClick() {
-        Toast.makeText(ChangePasswordActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
+        ChangePasswordActivity.this.finish();
     }
 
     @Override
@@ -103,11 +102,8 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                                 Toast.makeText(ChangePasswordActivity.this, "发送短信验证码成功", Toast.LENGTH_SHORT).show();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 Toast.makeText(ChangePasswordActivity.this, "发送短信验证码失败", Toast.LENGTH_SHORT).show();
-                                return;
                             }
                         } catch (NullPointerException e) {
-                            e.printStackTrace();
-                        } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
                     }
@@ -120,8 +116,8 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                 });
     }
 
-    // 注册或者重置密码点击事件
-    public void regist(View view) {
+    // 确认按钮点击事件
+    public void commitPass(View view) {
         final String str_username = username.getText().toString();
         final String str_password = password.getText().toString();
         final String str_repassword = repassword.getText().toString();
@@ -180,10 +176,20 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 // success
-                                // TODO 注册成功后的处理
-                                Toast.makeText(ChangePasswordActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ChangePasswordActivity.this, "修改密码成功", Toast.LENGTH_SHORT).show();
+
+                                //保存用户的用户名
+                                PrefUtils.setUsername(ChangePasswordActivity.this.getBaseContext(), str_username);
+                                //保存用户的密码
+                                PrefUtils.setPassword(ChangePasswordActivity.this.getBaseContext(), str_password);
+                                //跳转到登录的界面
+                                Intent intent = new Intent(ChangePasswordActivity.this, LoginActivity.class);
+                                ChangePasswordActivity.this.startActivity(intent);
+                                ChangePasswordActivity.this.finish();
+
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
+                                // TODO 错误信息的处理
                                 int errcode = json.get("errcode").getAsInt();
                                 if (3 == errcode) { //手机号已经注册
                                     Toast.makeText(ChangePasswordActivity.this, "该手机号已注册请直接登录", Toast.LENGTH_SHORT).show();
@@ -192,8 +198,6 @@ public class ChangePasswordActivity extends Activity implements TopBarView.onTit
                                 }
                             }
                         } catch (NullPointerException e) {
-                            e.printStackTrace();
-                        } catch (JsonSyntaxException e) {
                             e.printStackTrace();
                         }
                     }

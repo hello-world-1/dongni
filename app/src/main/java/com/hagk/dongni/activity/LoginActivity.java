@@ -43,7 +43,7 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 
 	@Override
 	public void onBackClick() {
-		Toast.makeText(LoginActivity.this, "你点击了左侧按钮", Toast.LENGTH_LONG).show();
+		LoginActivity.this.finish();
 	}
 
 	@Override
@@ -71,21 +71,22 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 			login.requestFocus();
 			login.requestFocusFromTouch();
 		}
-		
 	}
 
 	// 忘记密码按钮点击触发事件
 	public void forgetPassword(View view) {
-		Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
-		intent.putExtra("type", "forget");
-		System.out.println("forgetpassword button onclick");
+		Intent intent = new Intent(LoginActivity.this, ChangePasswordActivity.class);
+		intent.putExtra("type", "forgetpassword");
+		LoginActivity.this.startActivity(intent);
+		Toast.makeText(LoginActivity.this,"点击忘记密码",Toast.LENGTH_SHORT).show();
 	}
 
 	// 新用户按钮点击触发事件
 	public void regist(View view) {
 		Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
-		intent.putExtra("type", "regist");
-		System.out.println("regist button onclick");
+		LoginActivity.this.startActivity(intent);
+		LoginActivity.this.startActivity(intent);
+		Toast.makeText(LoginActivity.this,"点击注册按钮",Toast.LENGTH_SHORT).show();
 	}
 
 	/**
@@ -188,6 +189,7 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 								PrefUtils.setPassword(LoginActivity.this.getBaseContext(), str_password);
 
 								//TODO 跳转到其他的activity
+								Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {
 								//error
 								int errcode = json.get("errcode").getAsInt();
