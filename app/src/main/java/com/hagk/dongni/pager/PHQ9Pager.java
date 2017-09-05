@@ -53,7 +53,6 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
     private ListView lv;
     private Button commitSurvey;
     private List<SurveyHistory> historys;
-    private boolean issurveyInit = false;
 
     @Override
     public void onBackClick() {
@@ -71,7 +70,7 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
         }
 
         //获取问卷
-        getSurveyHistory();
+//        getSurveyHistory();
 
         // 获取网络请求接口
         View view = View.inflate(mActivity, R.layout.survey_listview, null);// 找到listview所在的布局
@@ -144,7 +143,6 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
                                     item.setScore(score);
                                     historys.add(item);
                                 }
-                                issurveyInit = true;
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();

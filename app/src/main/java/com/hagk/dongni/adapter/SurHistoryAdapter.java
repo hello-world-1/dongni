@@ -64,9 +64,9 @@ public class SurHistoryAdapter extends BaseAdapter implements ListAdapter{
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // 设置数据
-        viewHolder.surveyName.setText("问卷类型:" + surveyName);
-        viewHolder.surveyTime.setText("提交时间:" + surveyTime);
-        viewHolder.score.setText("分数:" + score);
+        viewHolder.surveyName.setText("问卷类型:" + tempSurveyName);
+        viewHolder.surveyTime.setText("提交时间:" + tempSurveyTime);
+        viewHolder.score.setText("分数:" + tempScore);
         return convertView;
     }
 

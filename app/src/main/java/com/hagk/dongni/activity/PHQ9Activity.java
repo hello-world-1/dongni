@@ -67,20 +67,20 @@ public class PHQ9Activity extends Activity implements TopBarView.onTitleBarClick
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.phq9_listview);
 
-//        answers = new HashMap<>();
-//        questions = new ArrayList<>();
-//        for (int i = 0; i < 7; i++) {
-//            QuestionItem item = new QuestionItem();
-//            item.setQuestion("question" + i);
-//            item.setAnswer1("question" + i + "answer" + i);
-//            item.setAnswer2("question" + i + "answer" + (i + 1));
-//            item.setAnswer3("question" + i + "answer" + (i + 2));
-//            item.setAnswer4("question" + i + "answer" + (i + 3));
-//            questions.add(item);
-//        }
+        answers = new HashMap<>();
+        questions = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            QuestionItem item = new QuestionItem();
+            item.setQuestion("question" + i);
+            item.setAnswer1("question" + i + "answer" + i);
+            item.setAnswer2("question" + i + "answer" + (i + 1));
+            item.setAnswer3("question" + i + "answer" + (i + 2));
+            item.setAnswer4("question" + i + "answer" + (i + 3));
+            questions.add(item);
+        }
 
         //获取问卷
-        getQuestion();
+//        getQuestion();
 
         // 获取网络请求接口
         lv = (ListView) findViewById(R.id.phq9_listview);
@@ -143,10 +143,10 @@ public class PHQ9Activity extends Activity implements TopBarView.onTitleBarClick
                     JsonObject json = (JsonObject) parse.parse(result);
                     String status = json.get("status").getAsString();
                     if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-                        //登录成功,把用户数据保存到数据库中
-                        JsonObject user = json.get("user").getAsJsonObject();
-                        String userID = user.get("userID").getAsString();
-                        String token = user.get("token").getAsString();
+
+                        PHQ9Activity.this.finish();
+
+                        //通知上一个界面(PHQ9Pager),数据更新,更新listView
                     } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                         //error
                         int errcode = json.get("errcode").getAsInt();
