@@ -15,11 +15,22 @@
         custom:titleSize="@dimen/title_bar_title_size"
         custom:titleText="" />
 
-    <ListView
-        android:id="@+id/survy_listview"
-        android:layout_width="match_parent"
-        android:layout_height="460dp" >
-    </ListView>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/survy_listview"
+            android:layout_width="match_parent"
+            android:layout_height="460dp" >
+        </ListView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_empty"
+            android:text="没有提交过问卷"/>
+    </FrameLayout>
 
     <!--提交按钮-->
     <Button

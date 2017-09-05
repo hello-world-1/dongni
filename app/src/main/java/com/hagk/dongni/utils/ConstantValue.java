@@ -8,7 +8,8 @@ import android.os.Environment;
 public class ConstantValue {
 	public static final String BASE_URL = "http://115.28.242.3:90";
 	public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/location/";
-	public static final String ACTION = "android.intent.action.CONTACT_BROADCAST";
+	public static final String CONTACT_ACTION = "android.intent.action.CONTACT_BROADCAST";
+	public static final String SURVEY_ACTION = "android.intent.action.SURVEY_BROADCAST";
 	public static final String FRAGMENT_LEFT_MENU = "fragment_left_menu";
 	public static final String FRAGMENT_CONTENT = "fragment_content";
 	public static final int LEFT_MENU_WIDTH = 200;

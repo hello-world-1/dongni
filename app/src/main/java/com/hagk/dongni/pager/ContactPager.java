@@ -76,13 +76,13 @@ public class ContactPager extends BaseMenuDetailPager implements TopBarView.onTi
         //获取联系人
         getContact();
 
-        lv.setAdapter(adapter);
+//        lv.setAdapter(adapter);
         //如果listview的适配器的数据源size为0则显示空视图
         lv.setEmptyView(view.findViewById(R.id.tv_empty));
 
         broadcastReceiver=new MyReceiver();
         IntentFilter filter=new IntentFilter();
-        filter.addAction(ConstantValue.ACTION);
+        filter.addAction(ConstantValue.CONTACT_ACTION);
         mActivity.registerReceiver(broadcastReceiver,filter);
         return view;
     }

@@ -95,7 +95,10 @@ public class PHQ9Activity extends Activity implements TopBarView.onTitleBarClick
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.btn_commit:
-                        answerCommit();
+//                        answerCommit();
+                        Intent intent = new Intent(ConstantValue.SURVEY_ACTION);
+                        sendBroadcast(intent);
+                        PHQ9Activity.this.finish();
                         break;
                     default:
                         break;
@@ -143,9 +146,9 @@ public class PHQ9Activity extends Activity implements TopBarView.onTitleBarClick
                     JsonObject json = (JsonObject) parse.parse(result);
                     String status = json.get("status").getAsString();
                     if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-
+                        Intent intent = new Intent(ConstantValue.SURVEY_ACTION);
+                        sendBroadcast(intent);
                         PHQ9Activity.this.finish();
-
                         //通知上一个界面(PHQ9Pager),数据更新,更新listView
                     } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                         //error

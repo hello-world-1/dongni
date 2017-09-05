@@ -122,7 +122,7 @@ public class AddContactActivity extends Activity implements TopBarView.onTitleBa
         }
         //如果没有包含该对象,则添加到本地数据库
         PrefUtils.setWatchContact(AddContactActivity.this,nicknameStr + " " +phoneStr);
-        Intent intent = new Intent(ConstantValue.ACTION);
+        Intent intent = new Intent(ConstantValue.CONTACT_ACTION);
         sendBroadcast(intent);
         finish();
 //        postData(nicknameStr, phoneStr);
@@ -152,7 +152,7 @@ public class AddContactActivity extends Activity implements TopBarView.onTitleBa
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 //TODO 保存成功后的处理
-                                Intent intent = new Intent(ConstantValue.ACTION);
+                                Intent intent = new Intent(ConstantValue.CONTACT_ACTION);
                                 sendBroadcast(intent);
                                 AddContactActivity.this.finish();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {

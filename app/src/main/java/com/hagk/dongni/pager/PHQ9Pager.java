@@ -1,7 +1,10 @@
 package com.hagk.dongni.pager;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import com.hagk.dongni.R;
 import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.PHQ9Activity;
 import com.hagk.dongni.activity.RegistActivity;
+import com.hagk.dongni.adapter.ContactAdapter;
 import com.hagk.dongni.adapter.QuestionAdapter;
 import com.hagk.dongni.adapter.SurHistoryAdapter;
 import com.hagk.dongni.bean.Answer;
@@ -42,6 +46,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitleBarClickListener{
 
@@ -53,15 +58,23 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
     private ListView lv;
     private Button commitSurvey;
     private List<SurveyHistory> historys;
+    private BroadcastReceiver broadcastReceiver;
+    private SurHistoryAdapter adapter;
 
     @Override
     public void onBackClick() {
     }
 
+    // 退出应用时释放资源
+    @Override
+    public void releaseResourece() {
+        mActivity.unregisterReceiver(broadcastReceiver);
+    }
+
     @Override
     public View initViews() {
         historys = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 17; i++) {
             SurveyHistory item = new SurveyHistory();
             item.setSurveyName("phq-9");
             item.setSurveyTime(new Date().toString());
@@ -96,13 +109,34 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
             }
         });
 
-        lv.setAdapter(new SurHistoryAdapter(historys, R.layout.survy_listview_item, mActivity));
+        adapter = new SurHistoryAdapter(historys, R.layout.survy_listview_item, mActivity);
+        lv.setAdapter(adapter);
+        lv.setEmptyView(view.findViewById(R.id.tv_empty));
+
+        broadcastReceiver=new MyReceiver();
+        IntentFilter filter=new IntentFilter();
+        filter.addAction(ConstantValue.SURVEY_ACTION);
+        mActivity.registerReceiver(broadcastReceiver,filter);
+
         return view;
     }
 
     @Override
     public void initData() {
-        // 获取问题
+        // 每次点击条目时触发的方法
+        getSurveyHistory();
+    }
+
+    public class MyReceiver extends BroadcastReceiver {
+        //自定义一个广播接收器
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Toast.makeText(context,"广播节后这",Toast.LENGTH_SHORT).show();
+//            getSurveyHistory();
+        }
+        public MyReceiver(){
+        }
+
     }
 
     public void getSurveyHistory(){
@@ -143,6 +177,9 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
                                     item.setScore(score);
                                     historys.add(item);
                                 }
+
+                                adapter = new SurHistoryAdapter(historys, R.layout.survy_listview_item, mActivity);
+                                lv.setAdapter(adapter);
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();
