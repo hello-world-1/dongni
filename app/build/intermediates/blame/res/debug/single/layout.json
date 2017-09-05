@@ -32,6 +32,10 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\index_pager.xml"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\alert_pager.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\alert_pager.xml"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\phq9_listview.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\phq9_listview.xml"
     },
@@ -80,6 +84,14 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\survy_listview_item.xml"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\course_listview_item.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\course_listview_item.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\course_listview.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\course_listview.xml"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\regist_activity.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\regist_activity.xml"
     },
@@ -90,6 +102,10 @@
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_content.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_content.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\course_detail_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\course_detail_activity.xml"
     },
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\base_pager.xml",

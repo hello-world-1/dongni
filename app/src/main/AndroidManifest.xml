@@ -108,6 +108,7 @@
         <activity android:name="com.hagk.dongni.activity.ChangePasswordActivity" />
         <activity android:name="com.hagk.dongni.activity.AddContactActivity" />
         <activity android:name="com.hagk.dongni.activity.PHQ9Activity" />
+        <activity android:name="com.hagk.dongni.activity.CourseDetailActivity" />
     </application>
 
 </manifest>
