@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -27,9 +28,17 @@ import java.util.Map;
  * 绑定设备的界面
  */
 public class CourseDetailActivity extends Activity implements TopBarView.onTitleBarClickListener{
-    EditText imeiNumber;
-    EditText phoneNumber;
-    CustomImageView bind;
+    TextView describe;
+    TextView teacher;
+    TextView date;
+    TextView limitPerson;
+    TextView entryDeadline;
+    TextView period;
+    TextView phone;
+    TextView price;
+    TextView applicantNumber;
+    TextView status;
+    TextView classTime;
     TopBarView title;
     private String lessonID;
 
@@ -47,37 +56,43 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
         Intent intent = getIntent();
         lessonID = intent.getStringExtra("lessonID");
 
-        Toast.makeText(CourseDetailActivity.this,lessonID,Toast.LENGTH_SHORT).show();
-
-        imeiNumber = (EditText) findViewById(R.id.et_imei_number);
-        phoneNumber = (EditText) findViewById(R.id.et_phone_number);
-
         title = (TopBarView) findViewById(R.id.topbar);
         title.setClickListener(this);
 
-        bind = (CustomImageView) findViewById(R.id.bind_image);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        teacher = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+        describe = (TextView) findViewById(R.id.tv_describe);
+
     }
 
     // 点击绑定按钮触发的方法
     public void bind(View view) {
-        String imeiNumberStr = imeiNumber.getText().toString().trim();
-        String phoneNumberStr = phoneNumber.getText().toString().trim();
+//        String imeiNumberStr = imeiNumber.getText().toString().trim();
+//        String phoneNumberStr = phoneNumber.getText().toString().trim();
 
-        if (TextUtils.isEmpty(imeiNumberStr)
-                || TextUtils.isEmpty(phoneNumberStr)) {
-            Toast.makeText(CourseDetailActivity.this, ConstantValue.TXT_EMPTY,
-                    Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!OthersUtils.isMobileNO(phoneNumberStr)) {
-            Toast.makeText(CourseDetailActivity.this,
-                    ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
-                    .show();
-            return;
-        }
-
-        bindDevice(imeiNumberStr, phoneNumberStr);
+//        if (TextUtils.isEmpty(imeiNumberStr)
+//                || TextUtils.isEmpty(phoneNumberStr)) {
+//            Toast.makeText(CourseDetailActivity.this, ConstantValue.TXT_EMPTY,
+//                    Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        if (!OthersUtils.isMobileNO(phoneNumberStr)) {
+//            Toast.makeText(CourseDetailActivity.this,
+//                    ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
+//                    .show();
+//            return;
+//        }
+//
+//        bindDevice(imeiNumberStr, phoneNumberStr);
 
     }
 
@@ -107,7 +122,6 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 // 绑定成功,替换成对勾图片bindsuccess
-                                bind.setImageResource(R.mipmap.bindsuccess);
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();

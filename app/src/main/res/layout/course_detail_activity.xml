@@ -18,56 +18,62 @@
         custom:titleSize="@dimen/title_bar_title_size"
         custom:titleText="课程详情" />
 
-    <!--显示头像-->
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_describe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/login_activity_image_margin_top"
-        android:orientation="horizontal">
+        android:text="课程描述"/>
 
-        <com.hagk.dongni.view.CustomImageView
-            android:id="@+id/bind_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="bind"
-            customimage:src="@mipmap/bind"
-            customimage:type="round" />
-    </LinearLayout>
-    <!--IMEI号  -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_teacher"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="@dimen/register_item_margin_left"
-        android:layout_marginRight="@dimen/register_item_margin_right"
-        android:layout_marginTop="@dimen/register_item_margin_top"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/et_imei_number"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/imei_number"
-            android:inputType="number" />
-    </LinearLayout>
-
-    <!-- 设备手机号 -->
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:text="开课老师"/>
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="@dimen/register_item_margin_left"
-        android:layout_marginRight="@dimen/register_item_margin_right"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal">
+        android:text="开课时间"/>
+    <TextView
+        android:id="@+id/tv_class_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="上课时间"/>
+    <TextView
+        android:id="@+id/tv_limit_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="限制人数"/>
+    <TextView
+        android:id="@+id/tv_limit_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="报名截止日期"/>
+    <TextView
+        android:id="@+id/tv_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="课程周期"/>
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系方式"/>
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="课程价格"/>
+    <TextView
+        android:id="@+id/tv_applicantNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已报名人数"/>
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="课程状态"/>
 
-        <EditText
-            android:id="@+id/et_phone_number"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/device_phone_number"
-            android:inputType="phone" />
-    </LinearLayout>
 
 </LinearLayout>

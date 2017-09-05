@@ -24,7 +24,7 @@ public class CourseDetail {
     /**
      * 限制人数
      */
-    private String limitPerson;
+    private int limitPerson;
     /**
      * 报名截止日期
      */
@@ -40,11 +40,11 @@ public class CourseDetail {
     /**
      * 课程价格
      */
-    private String price;
+    private int price;
     /**
      * 已报名人数
      */
-    private String applicantNumber;
+    private int applicantNumber;
     /**
      * 课程状态
      */
@@ -53,6 +53,30 @@ public class CourseDetail {
      * 上课时间
      */
     private String classTime;
+
+    public int getLimitPerson() {
+        return limitPerson;
+    }
+
+    public void setLimitPerson(int limitPerson) {
+        this.limitPerson = limitPerson;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getApplicantNumber() {
+        return applicantNumber;
+    }
+
+    public void setApplicantNumber(int applicantNumber) {
+        this.applicantNumber = applicantNumber;
+    }
 
     public String getClassTime() {
         return classTime;
@@ -102,13 +126,6 @@ public class CourseDetail {
         this.endDate = endDate;
     }
 
-    public String getLimitPerson() {
-        return limitPerson;
-    }
-
-    public void setLimitPerson(String limitPerson) {
-        this.limitPerson = limitPerson;
-    }
 
     public String getEntryDeadline() {
         return entryDeadline;
@@ -124,22 +141,6 @@ public class CourseDetail {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getApplicantNumber() {
-        return applicantNumber;
-    }
-
-    public void setApplicantNumber(String applicantNumber) {
-        this.applicantNumber = applicantNumber;
     }
 
     public String getStatus() {
