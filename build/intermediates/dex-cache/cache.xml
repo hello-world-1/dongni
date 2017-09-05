@@ -2,139 +2,148 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\rxAndroid-1.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\rxAndroid-1.1.0_ed67898e14860871d10c0005a6f9f1de6a03d5c5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\butterknife-7.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\butterknife-7.0.1_006015ac06e8ab43629b0ca0e0a0afe8daafcaa0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\BaiduLBS_Android.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="bf4e78cdcbc029463c9d5970d70ec42c374d41b1">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android_25d22d44a46959785a27e60065a1694da5dc01e8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\nineoldandroids-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\nineoldandroids-2.4.0_edc576f1955077fd59d330d009a6bd802b864236.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\adapter-rxjava-2.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="bf61256d9868ea053e24d77669c55c80db375c15">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\adapter-rxjava-2.0.0_f2dbfcc7067e5e3a4fcc2dfad60e789f66320ab3.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="D:\studioworkspace\dongni\app\libs\converter-gson-2.0.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="49eb3ad545e7701234e4dd83db8dc1344b577f23">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\converter-gson-2.0.0_61db6ecd627308a5fb0856fadb3610e427220af6.jar" />
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\converter-gson-2.0.0_61db6ecd627308a5fb0856fadb3610e427220af6\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="E:\Android ADT\adt-bundle-windows-x86_64-20140321\.android\build-cache\c916e47cc0155f449f672c711dae867339fe4ef5\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\butterknife-7.0.1.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="398a9205dac6fec9d03aa5a8dc358227be9a2735">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\classes_33928263a0980cb15215a042987a46f0802fcdd3.jar" />
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\butterknife-7.0.1_006015ac06e8ab43629b0ca0e0a0afe8daafcaa0\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\junit-4.12.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\rxAndroid-1.1.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\junit-4.12_a3e184596dd80c3ddd85a491344618243a2ead82.jar" />
+        sha1="d4c4b83de2f6412072d2a29b1b7a5b03edaad5ff">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\rxAndroid-1.1.0_ed67898e14860871d10c0005a6f9f1de6a03d5c5\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\okio-1.6.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\nineoldandroids-2.4.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\okio-1.6.0_f561536bb18a1304612523728ac4635e4c62069b.jar" />
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\nineoldandroids-2.4.0_edc576f1955077fd59d330d009a6bd802b864236\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\retrofit-2.0.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\BaiduLBS_Android.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
-        sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\retrofit-2.0.0_02efaae63a5a8073377740a59e85881084954ff4.jar" />
+        sha1="bf4e78cdcbc029463c9d5970d70ec42c374d41b1">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\BaiduLBS_Android_25d22d44a46959785a27e60065a1694da5dc01e8\classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
         jar="D:\studioworkspace\dongni\app\libs\glide-3.7.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\glide-3.7.0_ff86f380312fd5d14bb792bb958661ebe3746c27.jar" />
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\glide-3.7.0_ff86f380312fd5d14bb792bb958661ebe3746c27\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="D:\studioworkspace\dongni\app\libs\openSource.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="5c4baadde9c9096e1907f716e32405398b4ffdd0">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\openSource_a0b99955a1604336995723c41f5f01f0abb8145d.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="D:\studioworkspace\dongni\app\libs\hamcrest-core-1.3.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\hamcrest-core-1.3_b8dd72ceb47fcbc55a7cc73c9489e264b2e290b9.jar" />
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\hamcrest-core-1.3_b8dd72ceb47fcbc55a7cc73c9489e264b2e290b9\classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\adapter-rxjava-2.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="bf61256d9868ea053e24d77669c55c80db375c15">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\adapter-rxjava-2.0.0_f2dbfcc7067e5e3a4fcc2dfad60e789f66320ab3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\openSource.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="5c4baadde9c9096e1907f716e32405398b4ffdd0">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\openSource_a0b99955a1604336995723c41f5f01f0abb8145d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c246265a5a5b1e922d26b5279848eec1102410f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\okio-1.6.0_f561536bb18a1304612523728ac4635e4c62069b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\retrofit-2.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\retrofit-2.0.0_02efaae63a5a8073377740a59e85881084954ff4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="D:\studioworkspace\dongni\app\libs\okhttp-3.2.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0_2268ac9c13160040176453111d96e1bc60bb73fb.jar" />
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\okhttp-3.2.0_2268ac9c13160040176453111d96e1bc60bb73fb\classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
         jar="D:\studioworkspace\dongni\app\libs\rxjava-1.1.1.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="b494968f6050d494de55dc3ce005e59c7eb40012">
-        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\pre-dexed\debug\rxjava-1.1.1_8de5796649f52aff4a38cfe82e6a5a8a83ec6287.jar" />
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\rxjava-1.1.1_8de5796649f52aff4a38cfe82e6a5a8a83ec6287\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\libs\junit-4.12.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\2\junit-4.12_a3e184596dd80c3ddd85a491344618243a2ead82\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\studioworkspace\dongni\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="f777a1c7e9d44c63c57e01f2ef8065b2ee480345">
+        <dex dex="D:\studioworkspace\dongni\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_74b2cf2cb6b7ed2b4835456021d4e39355fbcfea\classes.dex" />
     </item>
 
 </items>

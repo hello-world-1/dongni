@@ -45,4 +45,11 @@ public class IndexPager extends BasePager {
 		flContent.addView(menuPsger.mRootView);//initView
 		menuPsger.initData();// 初始化数据
 	}
+
+	// 退出应用时释放资源
+	public void releaseResourece() {
+		for(BaseMenuDetailPager pager : pagerList){
+			pager.releaseResourece();
+		}
+	}
 }

@@ -3,6 +3,7 @@ package com.hagk.dongni.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -109,20 +110,30 @@ public class PrefUtils {
 		sp.edit().putBoolean("isSetting",isSetting).commit();
 	}
 
+	/**
+	 * 添加联系人
+	 * @param ctx
+	 * @param contact
+	 * @return 如果为新增返回true,如果为更新返回false
+	 */
 	public static void setWatchContact(Context ctx,String contact){
 		SharedPreferences sp = ctx.getSharedPreferences(PREF_NAME,
 				Context.MODE_PRIVATE);
 		Set<String> contacts = sp.getStringSet("contact",null); //获取到所有的联系人
 		String nickname = contact.split(" ")[0];
-		for(String item : contacts){
-			String temp = item.split(" ")[0];
-			if(nickname.equals(temp)){
-				//如果包含了这个联系人
-				contacts.remove(item);
-				contacts.add(contact);
-				break;
+		if(contacts != null && contacts.size() > 0){
+			for(String item : contacts){
+				String temp = item.split(" ")[0];
+				if(nickname.equals(temp)){
+					//如果包含了这个联系人
+					contacts.remove(item);
+					break;
+				}
 			}
+		}else{
+			contacts = new HashSet<>();
 		}
+		contacts.add(contact);
 		sp.edit().putStringSet("contact",contacts).commit();
 	}
 

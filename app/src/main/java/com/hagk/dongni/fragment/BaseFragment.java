@@ -1,11 +1,14 @@
 package com.hagk.dongni.fragment;
 
 import android.app.Activity;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.hagk.dongni.activity.AddContactActivity;
 
 /**
  * fragment基类
@@ -19,6 +22,17 @@ public abstract class BaseFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mActivity = getActivity();
+	}
+
+	// 退出应用时释放资源
+	public void releaseResourece() {
+
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		releaseResourece();
 	}
 
 	// 处理fragment的布局

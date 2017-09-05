@@ -13,83 +13,91 @@ import com.hagk.dongni.pager.IndexPager;
 
 public class ContentFragment extends BaseFragment {
 
-	private ViewPager mViewPager;
-	
-	public ViewPager getmViewPager() {
-		return mViewPager;
-	}
+    private ViewPager mViewPager;
 
-	private ArrayList<BasePager> mPagerList;
+    public ViewPager getmViewPager() {
+        return mViewPager;
+    }
 
-	@Override
-	public View initViews() {
-		View view = View.inflate(mActivity, R.layout.fragment_content, null);
-		mViewPager = (ViewPager) view.findViewById(R.id.vp_content);
-		return view;
-	}
+    private ArrayList<BasePager> mPagerList;
 
-	@Override
-	public void initData() {
-		mPagerList = new ArrayList<>();
-		mPagerList.add(new IndexPager(mActivity));
-		mViewPager.setAdapter(new ContentAdapter());
-		mViewPager
-				.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-					@Override
-					public void onPageScrolled(int position,
-							float positionOffset, int positionOffsetPixels) {
+    @Override
+    public View initViews() {
+        View view = View.inflate(mActivity, R.layout.fragment_content, null);
+        mViewPager = (ViewPager) view.findViewById(R.id.vp_content);
+        return view;
+    }
 
-					}
+    // 退出应用时释放资源
+    @Override
+    public void releaseResourece() {
+        //释放pager的资源
+        getIndexPager().releaseResourece();
+    }
 
-					@Override
-					public void onPageSelected(int position) {
-						mPagerList.get(position).initData();// 当前页面加载数据
-					}
+    @Override
+    public void initData() {
+        mPagerList = new ArrayList<>();
+        mPagerList.add(new IndexPager(mActivity));
+        mViewPager.setAdapter(new ContentAdapter());
+        mViewPager
+                .setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position,
+                                               float positionOffset, int positionOffsetPixels) {
 
-					@Override
-					public void onPageScrollStateChanged(int state) {
+                    }
 
-					}
-				});
+                    @Override
+                    public void onPageSelected(int position) {
+                        mPagerList.get(position).initData();// 当前页面加载数据
+                    }
 
-		mPagerList.get(0).initData();// 默认主页为第一个
-	}
-	
-	public IndexPager getIndexPager() {
-		IndexPager pager = (IndexPager) mPagerList.get(0);
-		return pager;
-	}
-	
-	// 为viewpager写适配器
-	class ContentAdapter extends PagerAdapter {
-		@Override
-		public int getCount() {
-			return mPagerList.size();
-		}
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
 
-		@Override
-		public boolean isViewFromObject(View view, Object object) {
-			return view == object;
-		}
+                    }
+                });
 
-		@Override
-		public Object instantiateItem(ViewGroup container, int position) {
-			BasePager pager = mPagerList.get(position);
-			container.addView(pager.mRootView);
-			// pager.initData();// 初始化数据.... 不要放在此处初始化数据, 否则会预加载下一个页面
-			return pager.mRootView;
-		}
+        mPagerList.get(0).initData();// 默认主页为第一个
+    }
 
-		@Override
-		public void destroyItem(ViewGroup container, int position, Object object) {
-			container.removeView((View) object);
-		}
-	}
+    public IndexPager getIndexPager() {
+        IndexPager pager = (IndexPager) mPagerList.get(0);
+        return pager;
+    }
 
-	/**
-	 * 设置当前菜单页面
-	 */
-	public void setCurrentPage() {
-		mViewPager.setCurrentItem(0, false);
-	}
+
+    // 为viewpager写适配器
+    class ContentAdapter extends PagerAdapter {
+        @Override
+        public int getCount() {
+            return mPagerList.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            BasePager pager = mPagerList.get(position);
+            container.addView(pager.mRootView);
+            // pager.initData();// 初始化数据.... 不要放在此处初始化数据, 否则会预加载下一个页面
+            return pager.mRootView;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
+        }
+    }
+
+    /**
+     * 设置当前菜单页面
+     */
+    public void setCurrentPage() {
+        mViewPager.setCurrentItem(0, false);
+    }
 }

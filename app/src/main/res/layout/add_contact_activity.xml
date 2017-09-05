@@ -29,7 +29,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/et_imei_number"
+            android:id="@+id/et_contact_nickname"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:hint="联系人名称" />
@@ -46,11 +46,45 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/et_phone_number"
+            android:id="@+id/et_contact_phone"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:hint="手机号"
             android:inputType="phone" />
+    </LinearLayout>
+
+    <!-- 添加联系人图片 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_add_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bind" />
+    </LinearLayout>
+
+    <!-- 保存按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/register_item_margin_left"
+        android:layout_marginRight="@dimen/register_item_margin_right"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:id="@+id/bt_save_contact"/>
     </LinearLayout>
 
 </LinearLayout>

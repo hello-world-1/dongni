@@ -12,15 +12,20 @@ public abstract class BaseMenuDetailPager {
 		mRootView = initViews();// 把子类视图给mrootview
 	}
 
+	// 退出应用时释放资源
+	public void releaseResourece() {
+
+	}
+
 	/**
-	 * 初始化界面
+	 * 只有在第一次点击侧边栏的某个条目时会调用这个方法
 	 * 
 	 * @return 子view
 	 */
 	public abstract View initViews();
 
 	/**
-	 * 初始化数据
+	 * 每次点击侧边栏条目会调用这个方法
 	 */
 	public void initData() {
 

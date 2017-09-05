@@ -56,20 +56,20 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
 
     @Override
     public View initViews() {
-//        answers = new HashMap<>();
-//        questions = new ArrayList<>();
-//        for (int i = 0; i < 7; i++) {
-//            QuestionItem item = new QuestionItem();
-//            item.setQuestion("question" + i);
-//            item.setAnswer1("question" + i + "answer" + i);
-//            item.setAnswer2("question" + i + "answer" + (i + 1));
-//            item.setAnswer3("question" + i + "answer" + (i + 2));
-//            item.setAnswer4("question" + i + "answer" + (i + 3));
-//            questions.add(item);
-//        }
+        answers = new HashMap<>();
+        questions = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            QuestionItem item = new QuestionItem();
+            item.setQuestion("question" + i);
+            item.setAnswer1("question" + i + "answer" + i);
+            item.setAnswer2("question" + i + "answer" + (i + 1));
+            item.setAnswer3("question" + i + "answer" + (i + 2));
+            item.setAnswer4("question" + i + "answer" + (i + 3));
+            questions.add(item);
+        }
 
         //获取问卷
-        getQuestion();
+//        getQuestion();
 
         // 获取网络请求接口
         View view = View.inflate(mActivity, R.layout.phq9_listview, null);// 找到listview所在的布局

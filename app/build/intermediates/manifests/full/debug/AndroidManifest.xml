@@ -107,6 +107,15 @@
         <activity android:name="com.hagk.dongni.activity.DeviceBindActivity" />
         <activity android:name="com.hagk.dongni.activity.BaiduLocation" />
         <activity android:name="com.hagk.dongni.activity.ChangePasswordActivity" />
+        <activity android:name="com.hagk.dongni.activity.AddContactActivity" />
+
+        <receiver android:name="com.hagk.dongni.broadcast.ContactBroadcast" >
+            <intent-filter>
+                <action android:name="android.intent.action.CONTACT_BROADCAST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

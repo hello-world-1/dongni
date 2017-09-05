@@ -1,6 +1,7 @@
 package com.hagk.dongni.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.AddContactActivity;
 import com.hagk.dongni.bean.Answer;
 import com.hagk.dongni.bean.QuestionItem;
 import com.hagk.dongni.view.ChoiceGroup;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class ContactAdapter extends BaseAdapter implements ListAdapter {
+public class ContactAdapter extends BaseAdapter implements ListAdapter{
     private List<String> data;
     private int layout;
     private Context context;
@@ -52,14 +55,11 @@ public class ContactAdapter extends BaseAdapter implements ListAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final String contactItem = data.get(position);
-        convertView = LayoutInflater.from(context).inflate(layout, null);
-        String tempNickname = contactItem.split(" ")[0];
-        String tempPhone = contactItem.split(" ")[1];
+        final String tempNickname = contactItem.split(" ")[0];
+        final String tempPhone = contactItem.split(" ")[1];
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            // 通过ItemType设置不同的布局
-            convertView = mInflater.inflate(R.layout.phq9_listview_item, parent,
-                    false);
+            convertView = LayoutInflater.from(context).inflate(layout, null);
             viewHolder = new ViewHolder();
             viewHolder.nickname = (TextView) convertView.findViewById(R.id.contact_nickname);
             viewHolder.phone = (TextView) convertView.findViewById(R.id.contact_phone);
@@ -76,6 +76,11 @@ public class ContactAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.change_contact:
+                        Intent intent = new Intent(context, AddContactActivity.class);
+                        intent.putExtra("type","updateContact");
+                        intent.putExtra("nickname",tempNickname);
+                        intent.putExtra("phone",tempPhone);
+                        context.startActivity(intent);
                         break;
                     default:
                         break;
