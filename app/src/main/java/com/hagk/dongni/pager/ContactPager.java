@@ -110,11 +110,24 @@ public class ContactPager extends BaseMenuDetailPager implements TopBarView.onTi
         //如果listview的适配器的数据源size为0则显示空视图
         lv.setEmptyView(view.findViewById(R.id.tv_empty));
 
-        IntentFilter filter = new IntentFilter();
-        broadcastReceiver = new ContactBroadcast(this);
-        filter.addAction("android.intent.action.CONTACT_BROADCAST");
-        mActivity.registerReceiver(broadcastReceiver, filter);
+        broadcastReceiver=new MyReceiver();
+        IntentFilter filter=new IntentFilter();
+        filter.addAction(ConstantValue.ACTION);
+        mActivity.registerReceiver(broadcastReceiver,filter);
         return view;
+    }
+
+    public class MyReceiver extends BroadcastReceiver {
+        //自定义一个广播接收器
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            getContact();
+        }
+        public MyReceiver(){
+            System.out.println("MyReceiver");
+            //构造函数，做一些初始化工作，本例中无任何作用
+        }
+
     }
 
     @Override

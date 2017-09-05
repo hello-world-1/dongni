@@ -124,7 +124,7 @@ public class AddContactActivity extends Activity implements TopBarView.onTitleBa
         }
         //如果没有包含该对象,则添加到本地数据库
         PrefUtils.setWatchContact(AddContactActivity.this,nicknameStr + " " +phoneStr);
-        Intent intent = new Intent("android.intent.action.CONTACT_BROADCAST");
+        Intent intent = new Intent(ConstantValue.ACTION);
         sendBroadcast(intent);
         finish();
 //        postData(nicknameStr, phoneStr);
