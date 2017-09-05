@@ -73,6 +73,8 @@ public class CoursePager extends BaseMenuDetailPager implements TopBarView.onTit
 		View view = View.inflate(mActivity, R.layout.course_listview, null);// 找到listview所在的布局
 		lv = (ListView) view.findViewById(R.id.course_listview);
 
+
+
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
