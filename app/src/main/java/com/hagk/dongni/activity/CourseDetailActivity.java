@@ -31,6 +31,7 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
     TextView describe;
     TextView teacher;
     TextView date;
+    TextView classTime;
     TextView limitPerson;
     TextView entryDeadline;
     TextView period;
@@ -38,7 +39,6 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
     TextView price;
     TextView applicantNumber;
     TextView status;
-    TextView classTime;
     TopBarView title;
     private String lessonID;
 
@@ -60,44 +60,22 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
         title.setClickListener(this);
 
         describe = (TextView) findViewById(R.id.tv_describe);
-        teacher = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
-        describe = (TextView) findViewById(R.id.tv_describe);
+        teacher = (TextView) findViewById(R.id.tv_teacher);
+        date = (TextView) findViewById(R.id.tv_date);
+        classTime = (TextView) findViewById(R.id.tv_class_date);
+        limitPerson = (TextView) findViewById(R.id.tv_limit_person);
+        entryDeadline = (TextView) findViewById(R.id.tv_limit_date);
+        period = (TextView) findViewById(R.id.tv_period);
+        phone = (TextView) findViewById(R.id.tv_phone);
+        price = (TextView) findViewById(R.id.tv_price);
+        applicantNumber = (TextView) findViewById(R.id.tv_applicantNumber);
+        status = (TextView) findViewById(R.id.tv_status);
 
+        setText();
     }
 
-    // 点击绑定按钮触发的方法
-    public void bind(View view) {
-//        String imeiNumberStr = imeiNumber.getText().toString().trim();
-//        String phoneNumberStr = phoneNumber.getText().toString().trim();
-
-//        if (TextUtils.isEmpty(imeiNumberStr)
-//                || TextUtils.isEmpty(phoneNumberStr)) {
-//            Toast.makeText(CourseDetailActivity.this, ConstantValue.TXT_EMPTY,
-//                    Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//
-//        if (!OthersUtils.isMobileNO(phoneNumberStr)) {
-//            Toast.makeText(CourseDetailActivity.this,
-//                    ConstantValue.PHONE_NUMBER_FORMAT_ERROR, Toast.LENGTH_SHORT)
-//                    .show();
-//            return;
-//        }
-//
-//        bindDevice(imeiNumberStr, phoneNumberStr);
-
-    }
-
-    // 绑定设备
-    public void bindDevice(final String imeiNumberStr, final String phoneNumberStr) {
+    // 初始化数据
+    public void setText() {
 
         String uerID = PrefUtils.getUserID(CourseDetailActivity.this.getBaseContext());
         String token = PrefUtils.getToken(CourseDetailActivity.this.getBaseContext());
@@ -106,9 +84,7 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
         Map<String, Object> params = new HashMap<>();//构造请求的参数
         params.put("userID", uerID);
         params.put("token", token);
-        params.put("IMEI", imeiNumberStr);
-        params.put("watchTelephone", phoneNumberStr);
-        params.put("controlTelephone", username);
+        params.put("lessonID", lessonID);
 
         MyHttpUtils.build()//构建myhttputils
                 .url(ConstantValue.BASE_URL + "/api/user/watch/bind")//请求的url
@@ -121,7 +97,10 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
                             JsonObject json = (JsonObject) parse.parse(result);
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-                                // 绑定成功,替换成对勾图片bindsuccess
+//                                设置文本框的内容
+
+
+
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();
