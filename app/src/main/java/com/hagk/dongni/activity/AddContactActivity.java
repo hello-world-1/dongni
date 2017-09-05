@@ -34,8 +34,6 @@ import java.util.Set;
  */
 public class AddContactActivity extends Activity implements TopBarView.onTitleBarClickListener,View.OnClickListener{
 
-    public static final String action = "adapter.broadcast.action";
-
     EditText nickname;
     EditText phone;
     ImageView addContact;
@@ -154,9 +152,9 @@ public class AddContactActivity extends Activity implements TopBarView.onTitleBa
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 //TODO 保存成功后的处理
-                                Intent intent = new Intent(action);
+                                Intent intent = new Intent(ConstantValue.ACTION);
                                 sendBroadcast(intent);
-                                finish();
+                                AddContactActivity.this.finish();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();

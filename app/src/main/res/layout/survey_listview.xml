@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--最上方的标题-->
+    <com.hagk.dongni.view.TopBarView
+        android:id="@+id/topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:leftBtn="@drawable/back_page"
+        custom:titleColor="@android:color/white"
+        custom:titleSize="@dimen/title_bar_title_size"
+        custom:titleText="" />
+
+    <ListView
+        android:id="@+id/survy_listview"
+        android:layout_width="match_parent"
+        android:layout_height="460dp" >
+    </ListView>
+
+    <!--提交按钮-->
+    <Button
+        android:id="@+id/btn_survy"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="15dp"
+        android:background="#0BD38A"
+        android:onClick="answerCommit"
+        android:text="填写问卷"
+        android:textColor="#DFF9F0"
+        android:textSize="16sp" />
+</LinearLayout>
