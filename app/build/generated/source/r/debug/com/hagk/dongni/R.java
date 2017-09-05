@@ -229,7 +229,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int myradio_inactive=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f08004e;
+        public static final int action_settings=0x7f080053;
         public static final int back_image=0x7f08001e;
         public static final int bind_image=0x7f08001f;
         public static final int bmapView=0x7f08003f;
@@ -239,6 +239,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int btn_getcode=0x7f080012;
         public static final int btn_login=0x7f080043;
         public static final int btn_regist=0x7f080015;
+        public static final int btn_survy=0x7f08004f;
         public static final int button1=0x7f080040;
         public static final int change_contact=0x7f08001b;
         public static final int change_info=0x7f08003d;
@@ -300,6 +301,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int selected_view=0x7f080000;
         public static final int sex_choiceGroup=0x7f080033;
         public static final int slidingmenumain=0x7f08004d;
+        public static final int survy_listview=0x7f08004e;
         public static final int text_title=0x7f08001d;
         public static final int topbar=0x7f080009;
         public static final int tv_click=0x7f080046;
@@ -307,6 +309,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int tv_empty=0x7f080017;
         public static final int tv_exit=0x7f08004b;
         public static final int tv_repassword=0x7f08004c;
+        public static final int tv_score=0x7f080052;
+        public static final int tv_survy_type=0x7f080050;
+        public static final int tv_time=0x7f080051;
         public static final int vp_content=0x7f080022;
     }
     public static final class layout {
@@ -333,6 +338,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int regist_activity=0x7f040014;
         public static final int setting_pager=0x7f040015;
         public static final int slidingmenumain=0x7f040016;
+        public static final int survey_listview=0x7f040017;
+        public static final int survy_listview_item=0x7f040018;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

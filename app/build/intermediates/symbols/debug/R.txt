@@ -68,7 +68,7 @@ int drawable edit_normal 0x7f020002
 int drawable ic_launcher 0x7f020003
 int drawable myradio_active 0x7f020004
 int drawable myradio_inactive 0x7f020005
-int id action_settings 0x7f08004e
+int id action_settings 0x7f080053
 int id back_image 0x7f08001e
 int id bind_image 0x7f08001f
 int id bmapView 0x7f08003f
@@ -78,6 +78,7 @@ int id btn_commit 0x7f080048
 int id btn_getcode 0x7f080012
 int id btn_login 0x7f080043
 int id btn_regist 0x7f080015
+int id btn_survy 0x7f08004f
 int id button1 0x7f080040
 int id change_contact 0x7f08001b
 int id change_info 0x7f08003d
@@ -139,6 +140,7 @@ int id round 0x7f080002
 int id selected_view 0x7f080000
 int id sex_choiceGroup 0x7f080033
 int id slidingmenumain 0x7f08004d
+int id survy_listview 0x7f08004e
 int id text_title 0x7f08001d
 int id topbar 0x7f080009
 int id tv_click 0x7f080046
@@ -146,6 +148,9 @@ int id tv_courese_click 0x7f08001c
 int id tv_empty 0x7f080017
 int id tv_exit 0x7f08004b
 int id tv_repassword 0x7f08004c
+int id tv_score 0x7f080052
+int id tv_survy_type 0x7f080050
+int id tv_time 0x7f080051
 int id vp_content 0x7f080022
 int layout activity_main 0x7f040000
 int layout add_contact_activity 0x7f040001
@@ -170,6 +175,8 @@ int layout phq9_listview_item 0x7f040013
 int layout regist_activity 0x7f040014
 int layout setting_pager 0x7f040015
 int layout slidingmenumain 0x7f040016
+int layout survey_listview 0x7f040017
+int layout survy_listview_item 0x7f040018
 int menu main 0x7f0a0000
 int mipmap alert 0x7f030000
 int mipmap bind 0x7f030001
