@@ -3,10 +3,7 @@ package com.hagk.dongni.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,9 +11,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.hagk.dongni.R;
 import com.hagk.dongni.utils.ConstantValue;
-import com.hagk.dongni.utils.OthersUtils;
 import com.hagk.dongni.utils.PrefUtils;
-import com.hagk.dongni.view.CustomImageView;
 import com.hagk.dongni.view.TopBarView;
 import com.hdl.myhttputils.MyHttpUtils;
 import com.hdl.myhttputils.bean.StringCallBack;
@@ -37,7 +32,7 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
     TextView phone;
     TextView price;
     TextView applicantNumber;
-    TextView status;
+    TextView statusText;
     TopBarView title;
     private String lessonID;
 
@@ -68,7 +63,7 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
         phone = (TextView) findViewById(R.id.tv_phone);
         price = (TextView) findViewById(R.id.tv_price);
         applicantNumber = (TextView) findViewById(R.id.tv_applicantNumber);
-        status = (TextView) findViewById(R.id.tv_status);
+        statusText = (TextView) findViewById(R.id.tv_status);
 
         setText();
     }
@@ -78,7 +73,6 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
 
         String uerID = PrefUtils.getUserID(CourseDetailActivity.this.getBaseContext());
         String token = PrefUtils.getToken(CourseDetailActivity.this.getBaseContext());
-        String username = PrefUtils.getUsername(CourseDetailActivity.this.getBaseContext());
 
         Map<String, Object> params = new HashMap<>();//构造请求的参数
         params.put("userID", uerID);
@@ -86,7 +80,7 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
         params.put("lessonID", lessonID);
 
         MyHttpUtils.build()//构建myhttputils
-                .url(ConstantValue.BASE_URL + "/api/user/watch/bind")//请求的url
+                .url(ConstantValue.BASE_URL + "/api/user/lesson/detail")//请求的url
                 .addParams(params)
                 .onExecuteByPost(new StringCallBack() {//开始执行，并有一个回调（异步的哦---->直接可以更新ui）
                     @Override
@@ -97,29 +91,36 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
 //                                设置文本框的内容
-                                describe.setText(json.get("status").getAsString());
-                                teacher.setText(json.get("status").getAsString());
-                                date.setText(json.get("status").getAsString());
-                                classTime.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-                                describe.setText(json.get("status").getAsString());
-
-
-
+                                describe.setText(json.get("description").getAsString());
+                                teacher.setText(json.get("teacherName").getAsString());
+                                date.setText(json.get("startDate").getAsString() + "-" +json.get("endDate").getAsString());
+                                classTime.setText(json.get("classTime").getAsString());
+                                limitPerson.setText(json.get("studentsLimit").getAsString());
+                                entryDeadline.setText(json.get("enrolldeadline").getAsString());
+                                period.setText(json.get("classHours").getAsString());
+                                phone.setText(json.get("telephone").getAsString());
+                                price.setText(json.get("price").getAsString());
+                                applicantNumber.setText(json.get("enrollNum").getAsString());
+                                if(json.get("state").getAsString().equals("0")){
+                                    statusText.setText("未开始");
+                                }else if(json.get("state").getAsString().equals("1")){
+                                    statusText.setText("正在进行中");
+                                }else if(json.get("state").getAsString().equals("2")){
+                                    statusText.setText("课程已结束");
+                                }
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
                                 int errcode = json.get("errcode").getAsInt();
-                                if (3 == errcode || 4 == errcode || 5 == errcode) { //数据库出错
-                                    Toast.makeText(CourseDetailActivity.this, "服务器内部错误", Toast.LENGTH_SHORT).show();
-                                } else if (7 == errcode) { //给手表发送命令失败
-                                    Toast.makeText(CourseDetailActivity.this, "与手表通信失败", Toast.LENGTH_SHORT).show();
+                                if (0 == errcode) { //数据库出错
+                                    Toast.makeText(CourseDetailActivity.this, "userID或token为空", Toast.LENGTH_SHORT).show();
+                                } else if (1 == errcode || 3 == errcode) { //给手表发送命令失败
+                                    Toast.makeText(CourseDetailActivity.this, "数据库查询失败", Toast.LENGTH_SHORT).show();
                                 } else if (2 == errcode) {
-                                    Toast.makeText(CourseDetailActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(CourseDetailActivity.this, "该用户不存在", Toast.LENGTH_SHORT).show();
+                                } else if (4 == errcode) {
+                                    Toast.makeText(CourseDetailActivity.this, "该课程不存在", Toast.LENGTH_SHORT).show();
+                                } else if (5 == errcode) {
+                                    Toast.makeText(CourseDetailActivity.this, "订单查询错误", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         } catch (NullPointerException e) {

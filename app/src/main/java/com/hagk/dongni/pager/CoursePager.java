@@ -136,14 +136,14 @@ public class CoursePager extends BaseMenuDetailPager implements TopBarView.onTit
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {
 								//error
 								int errcode = json.get("errcode").getAsInt();
-								if (3 == errcode) {
-									Toast.makeText(mActivity, "服务器内部错误", Toast.LENGTH_SHORT).show();
-								} else if (4 == errcode) {
-									Toast.makeText(mActivity, "服务器内部错误", Toast.LENGTH_SHORT).show();
+								if (0 == errcode) {
+									Toast.makeText(mActivity, "userID或token为空", Toast.LENGTH_SHORT).show();
+								} else if (1 == errcode) {
+									Toast.makeText(mActivity, "数据库查询失败", Toast.LENGTH_SHORT).show();
 								} else if (2 == errcode) {
-									Toast.makeText(mActivity, "服务器内部错误", Toast.LENGTH_SHORT).show();
-								} else if (6 == errcode) {
-									Toast.makeText(mActivity, "服务器内部错误", Toast.LENGTH_SHORT).show();
+									Toast.makeText(mActivity, "用户不存在", Toast.LENGTH_SHORT).show();
+								} else if (4 == errcode) {
+									Toast.makeText(mActivity, "您没有报名过任何课程", Toast.LENGTH_SHORT).show();
 								}
 							}
 						} catch (NullPointerException e) {
