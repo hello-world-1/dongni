@@ -65,14 +65,14 @@ public class SettingPager extends BaseMenuDetailPager implements TopBarView.onTi
 							JsonObject json = (JsonObject) parse.parse(result);
 							String status = json.get("status").getAsString();
 							if (ConstantValue.SUCCESS_STATUS.equals(status)) {
-								//登录成功,把用户数据保存到数据库中
+								//注销成功,把用户数据保存到数据库中
 								JsonObject user = json.get("user").getAsJsonObject();
 								String userID = user.get("userID").getAsString();
 								String token = user.get("token").getAsString();
 								//保存用户的ID
 								PrefUtils.setUserID(mActivity, userID);
 								//保存用户的token
-								PrefUtils.setToken(mActivity, token);
+								PrefUtils.setToken(mActivity, null);
 
 								Toast.makeText(mActivity,"注销成功",Toast.LENGTH_SHORT).show();
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {

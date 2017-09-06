@@ -74,7 +74,7 @@ public class ContactPager extends BaseMenuDetailPager implements TopBarView.onTi
         });
 
         //获取联系人
-        getContact();
+//        getContact();
 
 //        lv.setAdapter(adapter);
         //如果listview的适配器的数据源size为0则显示空视图

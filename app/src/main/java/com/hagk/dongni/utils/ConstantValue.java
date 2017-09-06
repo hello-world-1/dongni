@@ -10,6 +10,7 @@ public class ConstantValue {
 	public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/location/";
 	public static final String CONTACT_ACTION = "android.intent.action.CONTACT_BROADCAST";
 	public static final String SURVEY_ACTION = "android.intent.action.SURVEY_BROADCAST";
+	public static final String LOGIN_ACTION = "android.intent.action.LOGIN_BROADCAST";
 	public static final String FRAGMENT_LEFT_MENU = "fragment_left_menu";
 	public static final String FRAGMENT_CONTENT = "fragment_content";
 	public static final int LEFT_MENU_WIDTH = 200;

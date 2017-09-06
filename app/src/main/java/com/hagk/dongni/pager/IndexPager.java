@@ -3,9 +3,12 @@ package com.hagk.dongni.pager;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.LoginActivity;
 
 public class IndexPager extends BasePager {
 
@@ -22,6 +25,15 @@ public class IndexPager extends BasePager {
 		addMenuPager();// 添加侧栏内容
 		View v = View.inflate(mActivity, R.layout.index_pager, null);// 找到首页所在的布局
 		flContent.addView(v);// 给framelayout添加视图
+
+		TextView tv = (TextView) v.findViewById(R.id.tv_temp);
+		tv.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(mActivity, LoginActivity.class);
+				mActivity.startActivity(intent);
+			}
+		});
 	}
 
 	/**

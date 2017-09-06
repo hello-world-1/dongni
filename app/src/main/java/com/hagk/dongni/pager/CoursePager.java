@@ -57,16 +57,16 @@ public class CoursePager extends BaseMenuDetailPager implements TopBarView.onTit
 
 	@Override
 	public View initViews() {
-		courses = new ArrayList<>();
-		for (int i = 0; i < 37; i++) {
-			CourseDigest item = new CourseDigest();
-			item.setTitle("课程一");
-			item.setTime(new Date().toString());
-			item.setLessonID("fasdfdsf");
-			courses.add(item);
-		}
+//		courses = new ArrayList<>();
+//		for (int i = 0; i < 37; i++) {
+//			CourseDigest item = new CourseDigest();
+//			item.setTitle("课程一");
+//			item.setTime(new Date().toString());
+//			item.setLessonID("fasdfdsf");
+//			courses.add(item);
+//		}
 
-		//获取报名的左右课程
+		//获取报名的所有课程
 //        getCourse();
 
 		// 获取网络请求接口
@@ -87,8 +87,8 @@ public class CoursePager extends BaseMenuDetailPager implements TopBarView.onTit
 		title = (TopBarView) view.findViewById(R.id.topbar);
 		title.setClickListener(this);
 
-		adapter = new CourseDigestAdapter(courses, R.layout.course_listview_item, mActivity);
-		lv.setAdapter(adapter);
+//		adapter = new CourseDigestAdapter(courses, R.layout.course_listview_item, mActivity);
+//		lv.setAdapter(adapter);
 		lv.setEmptyView(view.findViewById(R.id.tv_empty));
 		return view;
 	}
@@ -96,7 +96,7 @@ public class CoursePager extends BaseMenuDetailPager implements TopBarView.onTit
 	@Override
 	public void initData() {
 		// 每次点击条目时触发的方法
-//		getCourse();
+		getCourse();
 	}
 
 	public void getCourse(){

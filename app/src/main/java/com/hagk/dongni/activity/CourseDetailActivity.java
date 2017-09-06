@@ -24,9 +24,8 @@ import com.hdl.myhttputils.bean.StringCallBack;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
- * 绑定设备的界面
- */
+
+// TODO 获取数据的代码
 public class CourseDetailActivity extends Activity implements TopBarView.onTitleBarClickListener{
     TextView describe;
     TextView teacher;
@@ -98,6 +97,17 @@ public class CourseDetailActivity extends Activity implements TopBarView.onTitle
                             String status = json.get("status").getAsString();
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
 //                                设置文本框的内容
+                                describe.setText(json.get("status").getAsString());
+                                teacher.setText(json.get("status").getAsString());
+                                date.setText(json.get("status").getAsString());
+                                classTime.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
+                                describe.setText(json.get("status").getAsString());
 
 
 

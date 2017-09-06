@@ -5,8 +5,9 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/tv_temp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="主页" />
+        android:text="点击跳转到登录界面" />
 
 </LinearLayout>

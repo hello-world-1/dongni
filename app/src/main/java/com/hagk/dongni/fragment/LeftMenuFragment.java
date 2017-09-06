@@ -5,6 +5,10 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.MainActivity;
 import com.hagk.dongni.R;
 import com.hagk.dongni.bean.UserInfo;
@@ -22,7 +27,9 @@ import com.hagk.dongni.bean.UserInfo.UserBean;
 import com.hagk.dongni.http.UserObserver;
 import com.hagk.dongni.http.UserService;
 import com.hagk.dongni.lib.SlidingMenu;
+import com.hagk.dongni.pager.ContactPager;
 import com.hagk.dongni.pager.IndexPager;
+import com.hagk.dongni.utils.ConstantValue;
 import com.hagk.dongni.utils.PrefUtils;
 import com.hagk.dongni.view.CustomImageView;
 
@@ -35,6 +42,7 @@ public class LeftMenuFragment extends BaseFragment implements
             course,contact,setting;// 中间的相对布局选项对象
     private CustomImageView picture;
     View view;
+    private BroadcastReceiver broadcastReceiver;
 
     @Override
     public View initViews() {
@@ -58,7 +66,27 @@ public class LeftMenuFragment extends BaseFragment implements
 
         picture.setOnClickListener(this);
 
+        broadcastReceiver=new MyReceiver();
+        IntentFilter filter=new IntentFilter();
+        filter.addAction(ConstantValue.LOGIN_ACTION);
+        mActivity.registerReceiver(broadcastReceiver,filter);
+
         return view;
+    }
+
+    public class MyReceiver extends BroadcastReceiver {
+        //自定义一个广播接收器
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int pos = intent.getIntExtra("pos",0);
+            setCurrentMenuPager(pos);
+            toggleSlidingMenu();
+        }
+        public MyReceiver(){
+            System.out.println("MyReceiver");
+            //构造函数，做一些初始化工作，本例中无任何作用
+        }
+
     }
 
     // 获取用户的头像,描述信息,nickname等信息
@@ -136,8 +164,14 @@ public class LeftMenuFragment extends BaseFragment implements
      * 处理munepager事件，显示指定的页面，关闭侧边栏
      */
     public void setMenuPager(int pos) {
-        setCurrentMenuPager(pos);
-        toggleSlidingMenu();
+        if(PrefUtils.getToken(mActivity) == null){
+            Intent intent = new Intent(mActivity, LoginActivity.class);
+            intent.putExtra("pos",pos);
+            mActivity.startActivity(intent);
+        }else{
+            setCurrentMenuPager(pos);
+            toggleSlidingMenu();
+        }
     }
 
     /**

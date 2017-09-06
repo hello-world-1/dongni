@@ -1,5 +1,27 @@
 package com.hagk.dongni.activity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.hagk.dongni.R;
+import com.hagk.dongni.utils.ConstantValue;
+import com.hagk.dongni.utils.OthersUtils;
+import com.hagk.dongni.utils.PrefUtils;
+import com.hagk.dongni.view.CustomImageView;
+import com.hagk.dongni.view.TopBarView;
+import com.hdl.myhttputils.MyHttpUtils;
+import com.hdl.myhttputils.bean.StringCallBack;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -7,39 +29,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
-import com.hagk.dongni.R;
-import com.hagk.dongni.utils.OthersUtils;
-import com.hagk.dongni.view.CustomImageView;
-import com.hagk.dongni.view.TopBarView;
-import com.hagk.dongni.utils.ConstantValue;
-import com.hagk.dongni.utils.HttpPostUtils;
-import com.hagk.dongni.utils.PrefUtils;
-import com.hdl.myhttputils.MyHttpUtils;
-import com.hdl.myhttputils.bean.StringCallBack;
-
 public class LoginActivity extends Activity implements TopBarView.onTitleBarClickListener {
 	EditText username;
 	EditText password;
     TopBarView title;
     CustomImageView picture;
 	Button login;
+	private int pos;
 
 	@Override
 	public void onBackClick() {
@@ -51,6 +47,9 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.login_activity);
+
+		Intent intent = getIntent();
+		pos = intent.getIntExtra("pos",0);
 
 		title = (TopBarView) findViewById(R.id.topbar);
 		title.setClickListener(this);
@@ -189,6 +188,10 @@ public class LoginActivity extends Activity implements TopBarView.onTitleBarClic
 								PrefUtils.setPassword(LoginActivity.this.getBaseContext(), str_password);
 
 								//TODO 跳转到其他的activity
+								LoginActivity.this.finish();
+								Intent intent = new Intent(ConstantValue.LOGIN_ACTION);
+								intent.putExtra("pos",pos);
+								sendBroadcast(intent);
 								Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
 							} else if (ConstantValue.ERROR_STATUS.equals(status)) {
 								//error

@@ -73,14 +73,14 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
 
     @Override
     public View initViews() {
-        historys = new ArrayList<>();
-        for (int i = 0; i < 17; i++) {
-            SurveyHistory item = new SurveyHistory();
-            item.setSurveyName("phq-9");
-            item.setSurveyTime(new Date().toString());
-            item.setScore(i);
-            historys.add(item);
-        }
+//        historys = new ArrayList<>();
+//        for (int i = 0; i < 17; i++) {
+//            SurveyHistory item = new SurveyHistory();
+//            item.setSurveyName("phq-9");
+//            item.setSurveyTime(new Date().toString());
+//            item.setScore(i);
+//            historys.add(item);
+//        }
 
         //获取问卷
 //        getSurveyHistory();
@@ -109,8 +109,8 @@ public class PHQ9Pager extends BaseMenuDetailPager implements TopBarView.onTitle
             }
         });
 
-        adapter = new SurHistoryAdapter(historys, R.layout.survy_listview_item, mActivity);
-        lv.setAdapter(adapter);
+//        adapter = new SurHistoryAdapter(historys, R.layout.survy_listview_item, mActivity);
+//        lv.setAdapter(adapter);
         lv.setEmptyView(view.findViewById(R.id.tv_empty));
 
         broadcastReceiver=new MyReceiver();
