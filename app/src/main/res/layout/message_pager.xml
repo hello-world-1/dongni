@@ -5,9 +5,19 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/tv_click"
+        android:id="@+id/tv_reply"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="message pager" />
+        android:text="回复" />
+    <TextView
+        android:id="@+id/tv_lesson"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="推荐课程" />
+    <TextView
+        android:id="@+id/tv_book"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="推荐书籍" />
 
 </LinearLayout>

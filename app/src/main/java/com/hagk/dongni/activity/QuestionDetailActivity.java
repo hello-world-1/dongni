@@ -25,16 +25,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/*
- * 添加联系人的界面
- *
- *
+/**
+ * 布局文件怎么写?
  */
 public class QuestionDetailActivity extends Activity implements TopBarView.onTitleBarClickListener,View.OnClickListener{
 
     String lessonID;
     TopBarView title;
     EditText question_title;
+
     EditText describe;
     ChoiceGroup public_choice;
     Button publish_question;

@@ -11,41 +11,43 @@ import com.hagk.dongni.R;
 import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.RegistActivity;
 
-public class MessagePager extends BaseMenuDetailPager {
+public class MessagePager extends BaseMenuDetailPager implements OnClickListener {
 
-	public MessagePager(Activity activity) {
-		super(activity);
-	}
+    TextView tv_reply;
+    TextView tv_lesson;
+    TextView tv_book;
 
-	TextView register;
-	
+    public MessagePager(Activity activity) {
+        super(activity);
+    }
 
-	@Override
-	public View initViews() {
-		// 获取网络请求接口
-		View view = View.inflate(mActivity, R.layout.message_pager, null);// 找到listview所在的布局
-		register = (TextView) view.findViewById(R.id.tv_click);
-		register.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				switch (v.getId()) {
-				case R.id.tv_click:
-					Intent intent = new Intent(mActivity, RegistActivity.class);
-					mActivity.startActivity(intent);
-					break;
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_reply:
+                break;
+            case R.id.tv_lesson:
+                break;
+            case R.id.tv_book:
+                break;
+        }
+    }
 
-				default:
-					
-					break;
-				}
-				
-			}
-		});
-		return view;
-	}
+    @Override
+    public View initViews() {
+        // 获取网络请求接口
+        View view = View.inflate(mActivity, R.layout.message_pager, null);// 找到listview所在的布局
+        tv_reply = (TextView) view.findViewById(R.id.tv_reply);
+        tv_reply.setOnClickListener(this);
+        tv_lesson = (TextView) view.findViewById(R.id.tv_lesson);
+        tv_lesson.setOnClickListener(this);
+        tv_book = (TextView) view.findViewById(R.id.tv_book);
+        tv_book.setOnClickListener(this);
 
-	@Override
-	public void initData() {
-	}
+        return view;
+    }
+
+    @Override
+    public void initData() {
+    }
 }
