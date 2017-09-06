@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.AddQuestionActivity;
 import com.hagk.dongni.activity.BaiduLocation;
 import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.RegistActivity;
@@ -32,7 +33,7 @@ public class AlertPager extends BaseMenuDetailPager {
 			public void onClick(View v) {
 				switch (v.getId()) {
 				case R.id.register_tv:
-					Intent intent = new Intent(mActivity, BaiduLocation.class);
+					Intent intent = new Intent(mActivity, AddQuestionActivity.class);
 					mActivity.startActivity(intent);
 					break;
 
