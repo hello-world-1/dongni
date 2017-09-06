@@ -8,10 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.hagk.dongni.R;
+import com.hagk.dongni.activity.AllReplyActivity;
 import com.hagk.dongni.activity.LoginActivity;
+import com.hagk.dongni.activity.MainActivity;
 import com.hagk.dongni.activity.RegistActivity;
+import com.hagk.dongni.view.TopBarView;
 
-public class MessagePager extends BaseMenuDetailPager implements OnClickListener {
+public class MessagePager extends BaseMenuDetailPager implements OnClickListener,TopBarView.onTitleBarClickListener {
 
     TextView tv_reply;
     TextView tv_lesson;
@@ -22,13 +25,25 @@ public class MessagePager extends BaseMenuDetailPager implements OnClickListener
     }
 
     @Override
+    public void onBackClick() {
+        MainActivity mainActivity = (MainActivity) mActivity;
+        mainActivity.getContentFragment().getIndexPager().initData();
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_reply:
+                Intent intent = new Intent(mActivity, AllReplyActivity.class);
+                mActivity.startActivity(intent);
                 break;
             case R.id.tv_lesson:
+                Intent lessonIntent = new Intent(mActivity, AllReplyActivity.class);
+                mActivity.startActivity(lessonIntent);
                 break;
             case R.id.tv_book:
+                Intent bookIntent = new Intent(mActivity, AllReplyActivity.class);
+                mActivity.startActivity(bookIntent);
                 break;
         }
     }
