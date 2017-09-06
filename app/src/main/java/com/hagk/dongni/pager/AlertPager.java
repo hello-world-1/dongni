@@ -32,7 +32,7 @@ public class AlertPager extends BaseMenuDetailPager {
 			@Override
 			public void onClick(View v) {
 				switch (v.getId()) {
-				case R.id.register_tv:
+				case R.id.tv_alert:
 					Intent intent = new Intent(mActivity, AddQuestionActivity.class);
 					mActivity.startActivity(intent);
 					break;

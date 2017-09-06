@@ -4,6 +4,10 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\message_pager.xml"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_question_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\add_question_activity.xml"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_left.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_left.xml"
     },

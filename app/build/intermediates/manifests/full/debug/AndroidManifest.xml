@@ -110,6 +110,7 @@
         <activity android:name="com.hagk.dongni.activity.AddContactActivity" />
         <activity android:name="com.hagk.dongni.activity.PHQ9Activity" />
         <activity android:name="com.hagk.dongni.activity.CourseDetailActivity" />
+        <activity android:name="com.hagk.dongni.activity.AddQuestionActivity" />
     </application>
 
 </manifest>

@@ -122,6 +122,10 @@ public class AddQuestionActivity extends Activity implements TopBarView.onTitleB
                             if (ConstantValue.SUCCESS_STATUS.equals(status)) {
                                 //TODO 保存成功后的处理
                                 Toast.makeText(AddQuestionActivity.this,"问题发布成功",Toast.LENGTH_SHORT).show();
+                                String lessonID = json.get("lessonID").getAsString();
+                                Intent intent = new Intent(AddQuestionActivity.this,QuestionDetailActivity.class);
+                                intent.putExtra("lessonID",lessonID);
+                                AddQuestionActivity.this.startActivity(intent);
                                 AddQuestionActivity.this.finish();
                             } else if (ConstantValue.ERROR_STATUS.equals(status)) {
                                 //error
