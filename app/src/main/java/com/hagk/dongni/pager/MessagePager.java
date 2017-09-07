@@ -11,6 +11,7 @@ import com.hagk.dongni.R;
 import com.hagk.dongni.activity.AllReplyActivity;
 import com.hagk.dongni.activity.LoginActivity;
 import com.hagk.dongni.activity.MainActivity;
+import com.hagk.dongni.activity.RecommendBookActivity;
 import com.hagk.dongni.activity.RegistActivity;
 import com.hagk.dongni.view.TopBarView;
 
@@ -38,7 +39,7 @@ public class MessagePager extends BaseMenuDetailPager implements OnClickListener
                 mActivity.startActivity(intent);
                 break;
             case R.id.tv_lesson:
-                Intent lessonIntent = new Intent(mActivity, AllReplyActivity.class);
+                Intent lessonIntent = new Intent(mActivity, RecommendBookActivity.class);
                 mActivity.startActivity(lessonIntent);
                 break;
             case R.id.tv_book:

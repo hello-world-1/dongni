@@ -16,6 +16,10 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\location_activity.xml"
     },
     {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\all_reply_listview.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\all_reply_listview.xml"
+    },
+    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_contact_activity.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\add_contact_activity.xml"
     },
