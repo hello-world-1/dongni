@@ -111,8 +111,9 @@
         <activity android:name="com.hagk.dongni.activity.CourseDetailActivity" />
         <activity android:name="com.hagk.dongni.activity.AddQuestionActivity" />
         <activity android:name="com.hagk.dongni.activity.QuestionDetailActivity" />
-        <activity android:name="com.hagk.dongni.activity.RecommendBookActivity" />
         <activity android:name="com.hagk.dongni.activity.AllReplyActivity" />
+        <activity android:name="com.hagk.dongni.activity.RecommendBookActivity" />
+        <activity android:name="com.hagk.dongni.activity.RecommendLessonActivity" />
     </application>
 
 </manifest>
