@@ -25,9 +25,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-/*
- * 添加联系人的界面
- */
 public class RecommendBookActivity extends Activity implements TopBarView.onTitleBarClickListener,View.OnClickListener{
 
     EditText nickname;

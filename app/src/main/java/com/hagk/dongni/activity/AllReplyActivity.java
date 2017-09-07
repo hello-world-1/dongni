@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
+// TODO 每个条目都有标题和回复
 public class AllReplyActivity extends Activity implements TopBarView.onTitleBarClickListener,View.OnClickListener{
 
     TextView titleText;

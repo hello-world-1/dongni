@@ -30,9 +30,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/*
- * 添加联系人的界面
- */
 public class AddQuestionActivity extends Activity implements TopBarView.onTitleBarClickListener,View.OnClickListener{
 
     TopBarView title;
