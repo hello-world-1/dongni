@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:2:1-118:12
+ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:2:1-119:12
 	package
 		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:3:5-30
 		INJECTED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml
@@ -108,7 +108,7 @@ MERGED from [com.huangdali:myhttputils:2.1.5] E:\Android ADT\adt-bundle-windows-
 		INJECTED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml
 		INJECTED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:76:5-116:19
+ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:76:5-117:19
 MERGED from [com.android.support:support-v4:22.2.1] E:\Android ADT\adt-bundle-windows-x86_64-20140321\.android\build-cache\90d09c32510af6eedc64b2cdaf215ff63d1c4cac\output\AndroidManifest.xml:22:5-20
 MERGED from [com.huangdali:myhttputils:2.1.5] E:\Android ADT\adt-bundle-windows-x86_64-20140321\.android\build-cache\c916e47cc0155f449f672c711dae867339fe4ef5\output\AndroidManifest.xml:11:5-15:19
 	android:label
@@ -197,11 +197,15 @@ activity#com.hagk.dongni.activity.QuestionDetailActivity
 ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:113:9-84
 	android:name
 		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:113:19-81
-activity#com.hagk.dongni.activity.RecommendBookActivity
-ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:114:9-83
-	android:name
-		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:114:19-80
 activity#com.hagk.dongni.activity.AllReplyActivity
-ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:115:9-78
+ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:114:9-78
 	android:name
-		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:115:19-75
+		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:114:19-75
+activity#com.hagk.dongni.activity.RecommendBookActivity
+ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:115:9-83
+	android:name
+		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:115:19-80
+activity#com.hagk.dongni.activity.RecommendLessonActivity
+ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:116:9-85
+	android:name
+		ADDED from D:\studioworkspace\dongni\app\src\main\AndroidManifest.xml:116:19-82

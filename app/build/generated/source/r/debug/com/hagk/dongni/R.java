@@ -365,11 +365,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int message_pager=0x7f040017;
         public static final int phq9_listview=0x7f040018;
         public static final int phq9_listview_item=0x7f040019;
-        public static final int regist_activity=0x7f04001a;
-        public static final int setting_pager=0x7f04001b;
-        public static final int slidingmenumain=0x7f04001c;
-        public static final int survey_listview=0x7f04001d;
-        public static final int survy_listview_item=0x7f04001e;
+        public static final int recommend_book_listview=0x7f04001a;
+        public static final int regist_activity=0x7f04001b;
+        public static final int setting_pager=0x7f04001c;
+        public static final int slidingmenumain=0x7f04001d;
+        public static final int survey_listview=0x7f04001e;
+        public static final int survy_listview_item=0x7f04001f;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

@@ -4,12 +4,12 @@
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\message_pager.xml"
     },
     {
-        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_question_activity.xml",
-        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\add_question_activity.xml"
-    },
-    {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_left.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\fragment_left.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\add_question_activity.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\add_question_activity.xml"
     },
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\location_activity.xml",
@@ -54,6 +54,10 @@
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\friend_listview.xml",
         "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\friend_listview.xml"
+    },
+    {
+        "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\recommend_book_listview.xml",
+        "source": "D:\\studioworkspace\\dongni\\app\\src\\main\\res\\layout\\recommend_book_listview.xml"
     },
     {
         "merged": "D:\\studioworkspace\\dongni\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_pager.xml",

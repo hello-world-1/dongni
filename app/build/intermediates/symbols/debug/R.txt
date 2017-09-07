@@ -202,11 +202,12 @@ int layout login_activity 0x7f040016
 int layout message_pager 0x7f040017
 int layout phq9_listview 0x7f040018
 int layout phq9_listview_item 0x7f040019
-int layout regist_activity 0x7f04001a
-int layout setting_pager 0x7f04001b
-int layout slidingmenumain 0x7f04001c
-int layout survey_listview 0x7f04001d
-int layout survy_listview_item 0x7f04001e
+int layout recommend_book_listview 0x7f04001a
+int layout regist_activity 0x7f04001b
+int layout setting_pager 0x7f04001c
+int layout slidingmenumain 0x7f04001d
+int layout survey_listview 0x7f04001e
+int layout survy_listview_item 0x7f04001f
 int menu main 0x7f0a0000
 int mipmap alert 0x7f030000
 int mipmap bind 0x7f030001
